@@ -27,6 +27,27 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<SupaUser | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = useCallback((href: string) => {
+    setIsOpen(false);
+    if (href === "/") {
+      navigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const hash = href.replace("/", "");
+    if (location.pathname === "/") {
+      const el = document.querySelector(hash);
+      el?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  }, [navigate, location.pathname]);
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
