@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="mb-4">
-              <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-14 w-auto object-contain brightness-0 invert" />
+              <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-20 w-auto object-contain brightness-0 invert" />
             </div>
             <p className="text-primary-foreground/50 text-sm leading-relaxed">
               المنصة القانونية الأولى في المملكة العربية السعودية لربط العملاء بأفضل المحامين المعتمدين.

@@ -39,8 +39,8 @@ const GovernmentPartner = () => {
           </div>
           {/* Icon/Image */}
           <div className="flex-shrink-0">
-            <div className="bg-secondary/10 rounded-2xl p-4 flex items-center justify-center">
-              <img src={snadLogo} alt="سند" className="h-20 w-auto object-contain" />
+            <div className="bg-secondary/10 rounded-3xl p-6 flex items-center justify-center">
+              <img src={snadLogo} alt="سند" className="h-24 w-auto object-contain" />
             </div>
           </div>
         </div>
