@@ -98,7 +98,7 @@ const Header = () => {
             ) : (
               <>
                 <Link to="/login">
-                  <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-sm">
+                  <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-sm">
                     تسجيل دخول
                   </Button>
                 </Link>
@@ -137,12 +137,12 @@ const Header = () => {
               {user ? (
                 <div className="flex flex-col gap-2 mt-3">
                   <Link to="/my-profile" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground w-full text-sm gap-2">
+                    <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground w-full text-sm gap-2">
                       <User size={16} />
                       الملف الشخصي
                     </Button>
                   </Link>
-                  <Button onClick={() => { handleLogout(); setIsOpen(false); }} variant="outline" className="border-destructive/30 text-destructive w-full text-sm gap-2">
+                  <Button onClick={() => { handleLogout(); setIsOpen(false); }} variant="ghost" className="border border-destructive/30 text-destructive w-full text-sm gap-2">
                     <LogOut size={16} />
                     تسجيل الخروج
                   </Button>
@@ -150,7 +150,7 @@ const Header = () => {
               ) : (
                 <div className="flex gap-2 mt-3">
                   <Link to="/login" className="flex-1" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground w-full text-sm">
+                    <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground w-full text-sm">
                       تسجيل دخول
                     </Button>
                   </Link>
