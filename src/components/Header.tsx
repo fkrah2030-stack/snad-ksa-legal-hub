@@ -16,11 +16,11 @@ import snadLogo from "@/assets/snad-logo.png";
 import type { User as SupaUser } from "@supabase/supabase-js";
 
 const navLinks = [
-  { label: "الرئيسية", href: "#" },
-  { label: "خدماتنا", href: "#services" },
-  { label: "المحامين", href: "#lawyers" },
-  { label: "من نحن", href: "#about" },
-  { label: "تواصل معنا", href: "#contact" },
+  { label: "الرئيسية", href: "/" },
+  { label: "خدماتنا", href: "/#services" },
+  { label: "المحامين", href: "/#lawyers" },
+  { label: "من نحن", href: "/#about" },
+  { label: "تواصل معنا", href: "/#contact" },
 ];
 
 const Header = () => {
