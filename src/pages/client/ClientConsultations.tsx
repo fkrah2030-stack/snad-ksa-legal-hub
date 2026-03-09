@@ -21,19 +21,19 @@ const ClientConsultations = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    const fetch = async () => {
-      if (!user) return;
-      const { data } = await supabase
-        .from("consultations")
-        .select("*")
-        .eq("client_id", user.id)
-        .order("created_at", { ascending: false });
-      setConsultations(data || []);
-      setLoading(false);
-    };
-    fetch();
+  const fetchData = useCallback(async () => {
+    if (!user) return;
+    setLoading(true);
+    const { data } = await supabase
+      .from("consultations")
+      .select("*")
+      .eq("client_id", user.id)
+      .order("created_at", { ascending: false });
+    setConsultations(data || []);
+    setLoading(false);
   }, [user]);
+
+  useEffect(() => { fetchData(); }, [fetchData]);
 
   const filtered = consultations.filter((c) => c.subject?.includes(search));
 
