@@ -56,7 +56,7 @@ export function AdminSidebar() {
   };
 
   return (
-    <Sidebar collapsible="icon" className="border-l border-border">
+    <Sidebar side="right" collapsible="icon" className="border-r-0 border-l border-sidebar-border">
       <div className="p-4 border-b border-border flex items-center justify-center">
         <Link to="/admin">
           <img
