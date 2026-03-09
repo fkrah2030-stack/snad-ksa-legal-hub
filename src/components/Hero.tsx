@@ -14,6 +14,11 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
+          {/* Logo */}
+          <div className="mb-6 animate-fade-in">
+            <img src={snadLogo} alt="سند" className="h-24 md:h-32 w-auto object-contain mx-auto brightness-0 invert" />
+          </div>
+
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full px-5 py-2 mb-8 animate-fade-in">
             <Shield size={16} className="text-secondary" />
