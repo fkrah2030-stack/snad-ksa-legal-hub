@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
+import NewConsultationDialog from "@/components/client/NewConsultationDialog";
 
 const statusMap: Record<string, { label: string; variant: "default" | "secondary" | "destructive" | "outline" }> = {
   pending: { label: "قيد الانتظار", variant: "secondary" },
@@ -20,29 +21,32 @@ const ClientConsultations = () => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    const fetch = async () => {
-      if (!user) return;
-      const { data } = await supabase
-        .from("consultations")
-        .select("*")
-        .eq("client_id", user.id)
-        .order("created_at", { ascending: false });
-      setConsultations(data || []);
-      setLoading(false);
-    };
-    fetch();
+  const fetchData = useCallback(async () => {
+    if (!user) return;
+    setLoading(true);
+    const { data } = await supabase
+      .from("consultations")
+      .select("*")
+      .eq("client_id", user.id)
+      .order("created_at", { ascending: false });
+    setConsultations(data || []);
+    setLoading(false);
   }, [user]);
+
+  useEffect(() => { fetchData(); }, [fetchData]);
 
   const filtered = consultations.filter((c) => c.subject?.includes(search));
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-foreground">استشاراتي</h1>
-        <p className="text-muted-foreground text-sm mt-1">
-          استشاراتي ({consultations.length} استشارة)
-        </p>
+      <div className="mb-6 flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-foreground">استشاراتي</h1>
+          <p className="text-muted-foreground text-sm mt-1">
+            استشاراتي ({consultations.length} استشارة)
+          </p>
+        </div>
+        <NewConsultationDialog onCreated={fetchData} />
       </div>
 
       <Card>
