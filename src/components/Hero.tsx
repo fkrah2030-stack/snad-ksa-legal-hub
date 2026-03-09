@@ -17,7 +17,7 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           {/* Logo */}
           <div className="mb-6 animate-fade-in">
-            <img src={snadLogo} alt="سند" className="h-24 md:h-32 w-auto object-contain mx-auto brightness-0 invert" />
+            <img src={snadLogo} alt="سند" className="h-48 md:h-64 w-auto object-contain mx-auto brightness-0 invert" />
           </div>
 
           {/* Badge */}

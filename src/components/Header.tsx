@@ -50,7 +50,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-16 md:h-20 w-auto object-contain" />
+            <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-32 md:h-40 w-auto object-contain" />
           </div>
 
           {/* Desktop Nav */}

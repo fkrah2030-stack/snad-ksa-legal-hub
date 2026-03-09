@@ -57,7 +57,7 @@ const Login = () => {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-block mb-4">
-            <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-20 md:h-24 w-auto object-contain" />
+            <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-40 md:h-48 w-auto object-contain" />
           </Link>
           <h1 className="text-2xl font-bold text-primary-foreground mt-4">تسجيل الدخول</h1>
           <p className="text-primary-foreground/60 text-sm mt-2">أدخل بياناتك للوصول إلى حسابك</p>

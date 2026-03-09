@@ -58,7 +58,7 @@ export function LawyerSidebar() {
           <img
             src={snadLogo}
             alt="سند"
-            className={`${collapsed ? "h-8" : "h-12"} w-auto object-contain transition-all`}
+            className={`${collapsed ? "h-16" : "h-24"} w-auto object-contain transition-all`}
           />
         </Link>
       </div>
