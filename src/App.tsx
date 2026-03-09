@@ -16,6 +16,18 @@ import AdminLawyers from "./pages/admin/AdminLawyers.tsx";
 import AdminUsers from "./pages/admin/AdminUsers.tsx";
 import AdminConsultations from "./pages/admin/AdminConsultations.tsx";
 import AdminServices from "./pages/admin/AdminServices.tsx";
+import LawyerLayout from "./components/lawyer/LawyerLayout.tsx";
+import LawyerDashboard from "./pages/lawyer/LawyerDashboard.tsx";
+import LawyerConsultations from "./pages/lawyer/LawyerConsultations.tsx";
+import LawyerAppointments from "./pages/lawyer/LawyerAppointments.tsx";
+import LawyerReviews from "./pages/lawyer/LawyerReviews.tsx";
+import LawyerProfilePage from "./pages/lawyer/LawyerProfile.tsx";
+import ClientLayout from "./components/client/ClientLayout.tsx";
+import ClientDashboard from "./pages/client/ClientDashboard.tsx";
+import ClientConsultations from "./pages/client/ClientConsultations.tsx";
+import ClientContracts from "./pages/client/ClientContracts.tsx";
+import ClientPayments from "./pages/client/ClientPayments.tsx";
+import ClientProfile from "./pages/client/ClientProfile.tsx";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +52,24 @@ const App = () => (
               <Route path="users" element={<AdminUsers />} />
               <Route path="consultations" element={<AdminConsultations />} />
               <Route path="services" element={<AdminServices />} />
+            </Route>
+
+            {/* Lawyer Routes */}
+            <Route path="/lawyer-dashboard" element={<LawyerLayout />}>
+              <Route index element={<LawyerDashboard />} />
+              <Route path="consultations" element={<LawyerConsultations />} />
+              <Route path="appointments" element={<LawyerAppointments />} />
+              <Route path="reviews" element={<LawyerReviews />} />
+              <Route path="profile" element={<LawyerProfilePage />} />
+            </Route>
+
+            {/* Client Routes */}
+            <Route path="/client-dashboard" element={<ClientLayout />}>
+              <Route index element={<ClientDashboard />} />
+              <Route path="consultations" element={<ClientConsultations />} />
+              <Route path="contracts" element={<ClientContracts />} />
+              <Route path="payments" element={<ClientPayments />} />
+              <Route path="profile" element={<ClientProfile />} />
             </Route>
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
