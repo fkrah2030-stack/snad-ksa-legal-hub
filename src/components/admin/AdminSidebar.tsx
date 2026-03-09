@@ -78,8 +78,8 @@ export function AdminSidebar() {
                     <NavLink
                       to={item.url}
                       end={item.url === "/admin"}
-                      className="hover:bg-muted/50"
-                      activeClassName="bg-primary/10 text-primary font-medium"
+                      className="hover:bg-sidebar-accent text-sidebar-foreground"
+                      activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
                     >
                       <item.icon className="ml-2 h-4 w-4" />
                       {!collapsed && <span>{item.title}</span>}
