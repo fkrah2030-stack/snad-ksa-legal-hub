@@ -32,7 +32,7 @@ const AdminLayout = () => {
         <AdminSidebar />
         <div className="flex-1 flex flex-col">
           {/* Admin Header */}
-          <header className="h-16 border-b border-border bg-card flex items-center justify-between px-4 sticky top-0 z-40">
+          <header className="h-16 border-b border-border bg-primary text-primary-foreground flex items-center justify-between px-4 sticky top-0 z-40">
             <div className="flex items-center gap-3">
               <SidebarTrigger />
               <h2 className="text-sm font-medium text-muted-foreground hidden sm:block">لوحة تحكم الأدمن</h2>
