@@ -1,21 +1,27 @@
+# Memory: index.md
+Updated: now
+
 # Snad KSA Legal Platform
 
 ## Design System
-- Primary: dark navy HSL(222, 47%, 20%)
+- Primary: deep blue HSL(222, 47%, 20%)
 - Secondary: golden HSL(45, 93%, 47%) - for accents/CTAs
-- Background: white (light theme)
 - Font: Cairo + Tajawal (Arabic)
 - Direction: RTL
-- Sections alternate: white bg for content, dark primary bg for hero/stats/footer
+- Background: white (light mode)
 
 ## Architecture
-- Layout wraps all pages (Header + Footer)
-- Components: Hero, GovernmentPartner, PlatformSaleBanner, FeaturedLawyers, LegalServices, Statistics, Testimonials
-- Auth: Supabase auth integrated in Header (profile dropdown when logged in)
+- Layout wraps public pages (Header + Footer)
+- Admin: /admin/* with Sidebar layout, protected by admin role check
+- Auth: Supabase Auth with user_roles table (app_role enum: admin, moderator, lawyer, user)
+- Auto profile creation on signup via trigger
 
-## Key Design Choices
-- Lawyer cards: blue header with avatar, white body with progress bars, stats grid, pricing
-- Services: white cards with outline "طلب استشارة" buttons
-- Statistics: dark primary background
-- Testimonials: light muted background
-- All colors via semantic tokens, NO direct color classes
+## Database Tables
+- profiles, user_roles, lawyers, services, consultations
+- has_role() security definer function for RLS
+
+## Key Decisions
+- Logo: snad-logo.png
+- Outline buttons on dark bg: use variant="ghost" + border class (not outline which adds bg-background)
+- Admin added manually via database (no self-registration for admin)
+- Services managed from admin dashboard, displayed dynamically on site
