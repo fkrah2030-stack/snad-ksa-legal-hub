@@ -11,7 +11,7 @@ const PlatformSaleBanner = () => {
               <Sparkles size={24} className="text-secondary" />
             </div>
             <div>
-              <h3 className="text-primary-foreground font-bold text-lg">استشارة قانونية مجانية</h3>
+              <h3 className="text-foreground font-bold text-lg">استشارة قانونية مجانية</h3>
               
             </div>
           </div>

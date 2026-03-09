@@ -150,7 +150,7 @@ const Header = () => {
               ) : (
                 <div className="flex gap-2 mt-3">
                   <Link to="/login" className="flex-1" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground w-full text-sm">
+                    <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground w-full text-sm">
                       تسجيل دخول
                     </Button>
                   </Link>
