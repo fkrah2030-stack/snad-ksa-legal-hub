@@ -34,7 +34,7 @@ const AdminLayout = () => {
           {/* Admin Header */}
           <header className="h-16 border-b border-border bg-primary text-primary-foreground flex items-center justify-between px-4 sticky top-0 z-40">
             <div className="flex items-center gap-3">
-              <SidebarTrigger />
+              <SidebarTrigger className="text-primary-foreground" />
               <h2 className="text-sm font-medium text-primary-foreground/70 hidden sm:block">لوحة تحكم الأدمن</h2>
             </div>
             <div className="flex items-center gap-3">
