@@ -1,0 +1,9 @@
+{
+  "appId": "app.lovable.f79212eaff9a4a938d6dd2059b26104d",
+  "appName": "snadksa-legal-support",
+  "webDir": "dist",
+  "server": {
+    "url": "https://f79212ea-ff9a-4a93-8d6d-d2059b26104d.lovableproject.com?forceHideBadge=true",
+    "cleartext": true
+  }
+}
