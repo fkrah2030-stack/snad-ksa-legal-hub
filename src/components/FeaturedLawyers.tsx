@@ -106,19 +106,6 @@ const FeaturedLawyers = () => {
 
               {/* Card Body - White */}
               <div className="p-6">
-                {/* Success Rate */}
-                <div className="mb-4">
-                  <div className="flex justify-between text-xs mb-1.5">
-                    <span className="text-muted-foreground">نسبة النجاح</span>
-                    <span className="text-foreground font-bold">{lawyer.successRate}%</span>
-                  </div>
-                  <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-secondary rounded-full transition-all"
-                      style={{ width: `${lawyer.successRate}%` }}
-                    />
-                  </div>
-                </div>
 
                 {/* Stats Grid */}
                 <div className="grid grid-cols-2 gap-3 mb-4">
