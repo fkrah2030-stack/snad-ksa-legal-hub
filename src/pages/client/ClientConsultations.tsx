@@ -39,11 +39,14 @@ const ClientConsultations = () => {
 
   return (
     <div>
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-foreground">استشاراتي</h1>
-        <p className="text-muted-foreground text-sm mt-1">
-          استشاراتي ({consultations.length} استشارة)
-        </p>
+      <div className="mb-6 flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold text-foreground">استشاراتي</h1>
+          <p className="text-muted-foreground text-sm mt-1">
+            استشاراتي ({consultations.length} استشارة)
+          </p>
+        </div>
+        <NewConsultationDialog onCreated={fetchData} />
       </div>
 
       <Card>
