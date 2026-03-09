@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center font-arabic p-4" dir="rtl">
+    <div className="min-h-screen flex items-center justify-center font-arabic p-4 bg-primary" dir="rtl">
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">

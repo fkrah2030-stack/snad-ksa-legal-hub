@@ -54,7 +54,7 @@ const Register = () => {
   ];
 
   return (
-    <div className="min-h-screen flex items-center justify-center font-arabic p-4 py-10" dir="rtl">
+    <div className="min-h-screen flex items-center justify-center font-arabic p-4 py-10 bg-primary" dir="rtl">
       <div className="w-full max-w-lg">
         {/* Logo */}
         <div className="text-center mb-8">
