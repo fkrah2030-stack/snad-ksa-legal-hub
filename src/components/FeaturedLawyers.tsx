@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const lawyers = [
-  { name: "أ. محمد العتيبي", specialty: "قانون تجاري", city: "الرياض", rating: 4.9, cases: 230 },
-  { name: "أ. سارة القحطاني", specialty: "قانون أسري", city: "جدة", rating: 4.8, cases: 180 },
-  { name: "أ. خالد الشمري", specialty: "قانون جنائي", city: "الدمام", rating: 4.7, cases: 310 },
-  { name: "أ. نورة الحربي", specialty: "قانون عمالي", city: "الرياض", rating: 4.9, cases: 150 },
+  { id: "1", name: "أ. محمد العتيبي", specialty: "قانون تجاري", city: "الرياض", rating: 4.9, cases: 230 },
+  { id: "2", name: "أ. سارة القحطاني", specialty: "قانون أسري", city: "جدة", rating: 4.8, cases: 180 },
+  { id: "3", name: "أ. خالد الشمري", specialty: "قانون جنائي", city: "الدمام", rating: 4.7, cases: 310 },
+  { id: "4", name: "أ. نورة الحربي", specialty: "قانون عمالي", city: "الرياض", rating: 4.9, cases: 150 },
 ];
 
 const FeaturedLawyers = () => {
