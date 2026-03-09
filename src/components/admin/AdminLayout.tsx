@@ -35,7 +35,7 @@ const AdminLayout = () => {
           <header className="h-16 border-b border-border bg-primary text-primary-foreground flex items-center justify-between px-4 sticky top-0 z-40">
             <div className="flex items-center gap-3">
               <SidebarTrigger />
-              <h2 className="text-sm font-medium text-muted-foreground hidden sm:block">لوحة تحكم الأدمن</h2>
+              <h2 className="text-sm font-medium text-primary-foreground/70 hidden sm:block">لوحة تحكم الأدمن</h2>
             </div>
             <div className="flex items-center gap-3">
               <button className="relative p-2 rounded-lg hover:bg-muted transition-colors">
