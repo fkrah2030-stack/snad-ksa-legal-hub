@@ -77,13 +77,13 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.label}
-                to={link.href}
-                className="text-primary-foreground/80 hover:text-secondary transition-colors text-sm font-medium"
+                onClick={() => handleNavClick(link.href)}
+                className="text-primary-foreground/80 hover:text-secondary transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </nav>
 
