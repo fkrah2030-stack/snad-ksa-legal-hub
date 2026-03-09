@@ -42,8 +42,8 @@ const AdminLayout = () => {
                 <Bell size={18} className="text-primary-foreground/70" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-destructive rounded-full" />
               </button>
-              <Avatar className="h-8 w-8 border border-border">
-                <AvatarFallback className="bg-primary text-primary-foreground text-xs">
+              <Avatar className="h-8 w-8 border border-primary-foreground/20">
+                <AvatarFallback className="bg-secondary text-secondary-foreground text-xs">
                   {user.email?.charAt(0).toUpperCase() || "A"}
                 </AvatarFallback>
               </Avatar>
