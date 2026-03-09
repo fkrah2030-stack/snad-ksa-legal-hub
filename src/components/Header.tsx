@@ -146,14 +146,13 @@ const Header = () => {
           <div className="md:hidden pb-4 border-t border-primary-foreground/10 mt-2 pt-4">
             <nav className="flex flex-col gap-3">
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.label}
-                  to={link.href}
-                  className="text-primary-foreground/80 hover:text-secondary transition-colors py-2 text-sm"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors py-2 text-sm bg-transparent border-none cursor-pointer text-right"
                 >
                   {link.label}
-                </Link>
+                </button>
               ))}
               {user ? (
                 <div className="flex flex-col gap-2 mt-3">
