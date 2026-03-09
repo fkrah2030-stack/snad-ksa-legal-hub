@@ -142,7 +142,7 @@ const Header = () => {
                       الملف الشخصي
                     </Button>
                   </Link>
-                  <Button onClick={() => { handleLogout(); setIsOpen(false); }} variant="outline" className="border-destructive/30 text-destructive w-full text-sm gap-2">
+                  <Button onClick={() => { handleLogout(); setIsOpen(false); }} variant="ghost" className="border border-destructive/30 text-destructive w-full text-sm gap-2">
                     <LogOut size={16} />
                     تسجيل الخروج
                   </Button>
