@@ -1,4 +1,6 @@
-import { Building2, Award } from "lucide-react";
+import { Building2, Award, ShieldCheck, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import snadLogo from "@/assets/snad-logo.png";
 
 const partners = [
   "وزارة العدل",
@@ -10,22 +12,37 @@ const partners = [
 
 const GovernmentPartner = () => {
   return (
-    <section className="py-12 bg-primary/5 backdrop-blur-sm border-y border-primary-foreground/5">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <Award size={20} className="text-secondary" />
-          <h3 className="text-primary-foreground/80 text-sm font-medium">شركاؤنا الاستراتيجيون</h3>
-        </div>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-          {partners.map((name) => (
-            <div
-              key={name}
-              className="flex items-center gap-2 bg-primary-foreground/5 border border-primary-foreground/10 rounded-xl px-6 py-3 hover:border-secondary/30 transition-colors"
-            >
-              <Building2 size={18} className="text-secondary/70" />
-              <span className="text-primary-foreground/70 text-sm font-medium">{name}</span>
+        <div className="bg-muted/50 border border-border rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
+          {/* Content */}
+          <div className="flex-1 text-center md:text-right">
+            <h3 className="text-2xl font-bold text-foreground mb-3">البوابة القانونية الرسمية</h3>
+            <p className="text-muted-foreground text-sm mb-6">
+              مرجع شامل لجميع الخدمات القانونية والمحاماة. سهولة الوصول لمعلومات قانونية موثوقة عبر سهولة
+            </p>
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
+              {partners.map((name) => (
+                <div
+                  key={name}
+                  className="flex items-center gap-2 bg-background border border-border rounded-full px-4 py-2"
+                >
+                  <Building2 size={14} className="text-secondary" />
+                  <span className="text-foreground text-xs font-medium">{name}</span>
+                </div>
+              ))}
             </div>
-          ))}
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl gap-2">
+              <ExternalLink size={16} />
+              زيارة البوابة القانونية
+            </Button>
+          </div>
+          {/* Icon/Image */}
+          <div className="flex-shrink-0">
+            <div className="w-28 h-28 bg-secondary/10 rounded-2xl flex items-center justify-center">
+              <img src={snadLogo} alt="سند" className="h-20 w-20 object-contain" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
