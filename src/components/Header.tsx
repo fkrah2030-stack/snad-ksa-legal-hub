@@ -79,12 +79,16 @@ const Header = () => {
                 </a>
               ))}
               <div className="flex gap-2 mt-3">
-                <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground flex-1 text-sm">
-                  تسجيل دخول
-                </Button>
-                <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground flex-1 text-sm font-bold">
-                  انضم كمحامي
-                </Button>
+                <Link to="/login" className="flex-1">
+                  <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground w-full text-sm">
+                    تسجيل دخول
+                  </Button>
+                </Link>
+                <Link to="/register" className="flex-1">
+                  <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground w-full text-sm font-bold">
+                    انضم كمحامي
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>
