@@ -86,10 +86,27 @@
     @apply bg-background text-foreground font-arabic min-h-screen;
     font-feature-settings: "rlig" 1, "calt" 1;
     direction: rtl;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
   }
 
   html {
     direction: rtl;
+    scroll-behavior: smooth;
+  }
+
+  /* Touch-friendly minimum sizes */
+  button, a, [role="button"], input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Exclude small icon buttons */
+  button[class*="icon"], .min-touch-none {
+    min-height: unset;
+    min-width: unset;
   }
 }
 
@@ -101,8 +118,13 @@
   text-align: right;
 }
 
+/* Safe area for bottom nav */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: hsl(220 14% 96%);
@@ -128,4 +150,9 @@
 [data-sonner-toast] {
   background: white !important;
   border: 1px solid hsl(220 13% 91%) !important;
+}
+
+/* Image optimization */
+img {
+  content-visibility: auto;
 }
