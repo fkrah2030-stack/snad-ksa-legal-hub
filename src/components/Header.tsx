@@ -98,7 +98,7 @@ const Header = () => {
             ) : (
               <>
                 <Link to="/login">
-                  <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-sm">
+                  <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-sm">
                     تسجيل دخول
                   </Button>
                 </Link>
