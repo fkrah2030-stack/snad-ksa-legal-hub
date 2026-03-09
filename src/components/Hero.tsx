@@ -2,7 +2,6 @@ import { Search, Shield, Users, Scale } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
-import snadLogo from "@/assets/snad-logo.png";
 
 const Hero = () => {
   return (
@@ -15,17 +14,6 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          {/* Logo */}
-          <div className="mb-6 animate-fade-in">
-            <img src={snadLogo} alt="سند" className="h-48 md:h-64 w-auto object-contain mx-auto brightness-0 invert" />
-          </div>
-
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary-foreground/10 border border-primary-foreground/20 rounded-full px-5 py-2 mb-8 animate-fade-in">
-            <Shield size={16} className="text-secondary" />
-            <span className="text-primary-foreground text-sm font-medium">جرب المنصة القانونية الأولى</span>
-          </div>
-
           <h1 className="text-4xl md:text-6xl font-black text-primary-foreground leading-tight mb-4 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             منصة <span className="text-secondary">سند</span>
           </h1>
