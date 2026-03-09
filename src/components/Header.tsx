@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -27,6 +27,27 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<SupaUser | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = useCallback((href: string) => {
+    setIsOpen(false);
+    if (href === "/") {
+      navigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const hash = href.replace("/", "");
+    if (location.pathname === "/") {
+      const el = document.querySelector(hash);
+      el?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        el?.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  }, [navigate, location.pathname]);
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -56,13 +77,13 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.label}
-                to={link.href}
-                className="text-primary-foreground/80 hover:text-secondary transition-colors text-sm font-medium"
+                onClick={() => handleNavClick(link.href)}
+                className="text-primary-foreground/80 hover:text-secondary transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </nav>
 
@@ -125,14 +146,13 @@ const Header = () => {
           <div className="md:hidden pb-4 border-t border-primary-foreground/10 mt-2 pt-4">
             <nav className="flex flex-col gap-3">
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.label}
-                  to={link.href}
-                  className="text-primary-foreground/80 hover:text-secondary transition-colors py-2 text-sm"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => handleNavClick(link.href)}
+                  className="text-primary-foreground/80 hover:text-secondary transition-colors py-2 text-sm bg-transparent border-none cursor-pointer text-right"
                 >
                   {link.label}
-                </Link>
+                </button>
               ))}
               {user ? (
                 <div className="flex flex-col gap-2 mt-3">
