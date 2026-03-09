@@ -72,16 +72,47 @@ const Header = () => {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Link to="/login">
-              <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-sm">
-                تسجيل دخول
-              </Button>
-            </Link>
-            <Link to="/register">
-              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-sm font-bold">
-                انضم كمحامي
-              </Button>
-            </Link>
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                    <Avatar className="h-9 w-9 border-2 border-secondary">
+                      <AvatarFallback className="bg-secondary text-secondary-foreground text-sm font-bold">
+                        {user.email?.charAt(0).toUpperCase() || "م"}
+                      </AvatarFallback>
+                    </Avatar>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48" dir="rtl">
+                  <DropdownMenuItem className="text-xs text-muted-foreground cursor-default">
+                    {user.email}
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => navigate("/my-profile")} className="cursor-pointer gap-2">
+                    <User size={16} />
+                    الملف الشخصي
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer gap-2 text-destructive">
+                    <LogOut size={16} />
+                    تسجيل الخروج
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <Link to="/login">
+                  <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-sm">
+                    تسجيل دخول
+                  </Button>
+                </Link>
+                <Link to="/register">
+                  <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-sm font-bold">
+                    انضم كمحامي
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile toggle */}
