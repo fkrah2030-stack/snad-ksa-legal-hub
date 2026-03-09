@@ -27,14 +27,21 @@ const Login = () => {
       toast.error(error.message === "Invalid login credentials" ? "بيانات الدخول غير صحيحة" : error.message);
     } else {
       toast.success("تم تسجيل الدخول بنجاح");
-      // Check if admin
+      // Check role and redirect
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         const { data: roles } = await supabase.from("user_roles").select("role").eq("user_id", user.id);
-        if (roles?.some((r) => r.role === "admin")) {
+        const roleList = roles?.map((r) => r.role) || [];
+        if (roleList.includes("admin")) {
           navigate("/admin");
           return;
         }
+        if (roleList.includes("lawyer")) {
+          navigate("/lawyer-dashboard");
+          return;
+        }
+        navigate("/client-dashboard");
+        return;
       }
       navigate("/");
     }
