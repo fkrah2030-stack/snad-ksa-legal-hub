@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import Login from "./pages/Login.tsx";
 import Register from "./pages/Register.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import LawyerProfile from "./pages/LawyerProfile.tsx";
 
 const queryClient = new QueryClient();
 
