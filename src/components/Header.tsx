@@ -43,12 +43,16 @@ const Header = () => {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-sm">
-              تسجيل دخول
-            </Button>
-            <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-sm font-bold">
-              انضم كمحامي
-            </Button>
+            <Link to="/login">
+              <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-sm">
+                تسجيل دخول
+              </Button>
+            </Link>
+            <Link to="/register">
+              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-sm font-bold">
+                انضم كمحامي
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile toggle */}
