@@ -56,7 +56,7 @@ export function AdminSidebar() {
   };
 
   return (
-    <Sidebar collapsible="icon" className="border-l border-border">
+    <Sidebar side="right" collapsible="icon" className="border-r-0 border-l border-sidebar-border">
       <div className="p-4 border-b border-border flex items-center justify-center">
         <Link to="/admin">
           <img
@@ -78,8 +78,8 @@ export function AdminSidebar() {
                     <NavLink
                       to={item.url}
                       end={item.url === "/admin"}
-                      className="hover:bg-muted/50"
-                      activeClassName="bg-primary/10 text-primary font-medium"
+                      className="hover:bg-sidebar-accent text-sidebar-foreground"
+                      activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
                     >
                       <item.icon className="ml-2 h-4 w-4" />
                       {!collapsed && <span>{item.title}</span>}
@@ -100,8 +100,8 @@ export function AdminSidebar() {
                   <SidebarMenuButton asChild>
                     <NavLink
                       to={item.url}
-                      className="hover:bg-muted/50"
-                      activeClassName="bg-primary/10 text-primary font-medium"
+                      className="hover:bg-sidebar-accent text-sidebar-foreground"
+                      activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
                     >
                       <item.icon className="ml-2 h-4 w-4" />
                       {!collapsed && <span>{item.title}</span>}

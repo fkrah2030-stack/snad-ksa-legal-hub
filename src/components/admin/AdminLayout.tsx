@@ -32,18 +32,18 @@ const AdminLayout = () => {
         <AdminSidebar />
         <div className="flex-1 flex flex-col">
           {/* Admin Header */}
-          <header className="h-16 border-b border-border bg-card flex items-center justify-between px-4 sticky top-0 z-40">
+          <header className="h-16 border-b border-border bg-primary text-primary-foreground flex items-center justify-between px-4 sticky top-0 z-40">
             <div className="flex items-center gap-3">
-              <SidebarTrigger />
-              <h2 className="text-sm font-medium text-muted-foreground hidden sm:block">لوحة تحكم الأدمن</h2>
+              <SidebarTrigger className="text-primary-foreground" />
+              <h2 className="text-sm font-medium text-primary-foreground/70 hidden sm:block">لوحة تحكم الأدمن</h2>
             </div>
             <div className="flex items-center gap-3">
-              <button className="relative p-2 rounded-lg hover:bg-muted transition-colors">
-                <Bell size={18} className="text-muted-foreground" />
+              <button className="relative p-2 rounded-lg hover:bg-primary-foreground/10 transition-colors">
+                <Bell size={18} className="text-primary-foreground/70" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-destructive rounded-full" />
               </button>
-              <Avatar className="h-8 w-8 border border-border">
-                <AvatarFallback className="bg-primary text-primary-foreground text-xs">
+              <Avatar className="h-8 w-8 border border-primary-foreground/20">
+                <AvatarFallback className="bg-secondary text-secondary-foreground text-xs">
                   {user.email?.charAt(0).toUpperCase() || "A"}
                 </AvatarFallback>
               </Avatar>
@@ -51,7 +51,7 @@ const AdminLayout = () => {
           </header>
 
           {/* Content */}
-          <main className="flex-1 p-4 md:p-6 bg-muted/30">
+          <main className="flex-1 p-4 md:p-6 bg-background">
             <Outlet />
           </main>
         </div>
