@@ -41,7 +41,7 @@ const Hero = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in" style={{ animationDelay: "0.25s" }}>
             <Link to="/register">
               <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-3 rounded-xl text-base gap-2">
-                <ChevronDown size={18} />
+                
                 سجل معنا
               </Button>
             </Link>
