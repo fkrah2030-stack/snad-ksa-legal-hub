@@ -8,12 +8,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <img src={snadLogo} alt="سند" className="h-10 w-10 object-contain" />
-              <div>
-                <h3 className="text-primary-foreground font-bold text-xl">سند</h3>
-                <span className="text-secondary text-[10px]">SNAD KSA</span>
-              </div>
+            <div className="mb-4">
+              <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-14 w-auto object-contain brightness-0 invert" />
             </div>
             <p className="text-primary-foreground/50 text-sm leading-relaxed">
               المنصة القانونية الأولى في المملكة العربية السعودية لربط العملاء بأفضل المحامين المعتمدين.
