@@ -137,7 +137,7 @@ const Header = () => {
               {user ? (
                 <div className="flex flex-col gap-2 mt-3">
                   <Link to="/my-profile" onClick={() => setIsOpen(false)}>
-                    <Button variant="outline" className="border-primary-foreground/30 text-primary-foreground w-full text-sm gap-2">
+                    <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground w-full text-sm gap-2">
                       <User size={16} />
                       الملف الشخصي
                     </Button>
