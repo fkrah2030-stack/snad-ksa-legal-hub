@@ -16,11 +16,11 @@ import snadLogo from "@/assets/snad-logo.png";
 import type { User as SupaUser } from "@supabase/supabase-js";
 
 const navLinks = [
-  { label: "الرئيسية", href: "#" },
-  { label: "خدماتنا", href: "#services" },
-  { label: "المحامين", href: "#lawyers" },
-  { label: "من نحن", href: "#about" },
-  { label: "تواصل معنا", href: "#contact" },
+  { label: "الرئيسية", href: "/" },
+  { label: "خدماتنا", href: "/#services" },
+  { label: "المحامين", href: "/#lawyers" },
+  { label: "من نحن", href: "/#about" },
+  { label: "تواصل معنا", href: "/#contact" },
 ];
 
 const Header = () => {
@@ -49,20 +49,20 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-32 md:h-40 w-auto object-contain" />
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.href}
                 className="text-primary-foreground/80 hover:text-secondary transition-colors text-sm font-medium"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -125,14 +125,14 @@ const Header = () => {
           <div className="md:hidden pb-4 border-t border-primary-foreground/10 mt-2 pt-4">
             <nav className="flex flex-col gap-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   className="text-primary-foreground/80 hover:text-secondary transition-colors py-2 text-sm"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               {user ? (
                 <div className="flex flex-col gap-2 mt-3">
