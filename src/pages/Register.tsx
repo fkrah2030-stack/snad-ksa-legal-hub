@@ -56,9 +56,9 @@ const Register = () => {
   return (
     <div className="min-h-screen flex items-center justify-center font-arabic p-4 py-10 bg-gradient-to-br from-primary via-primary/95 to-primary/80 relative overflow-hidden" dir="rtl">
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/8 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
-      <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-primary-foreground/3 rounded-full blur-2xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2 animate-float-reverse" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-secondary/8 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3 animate-float-slow" />
+      <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-primary-foreground/5 rounded-full blur-2xl animate-pulse-glow" />
       <div className="w-full max-w-lg relative z-10">
         {/* Logo */}
         <div className="text-center mb-8">
