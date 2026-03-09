@@ -83,7 +83,7 @@ const Header = () => {
                     </Avatar>
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-48" dir="rtl">
+                <DropdownMenuContent align="end" className="w-48">
                   <DropdownMenuItem className="text-xs text-muted-foreground cursor-default">
                     {user.email}
                   </DropdownMenuItem>
