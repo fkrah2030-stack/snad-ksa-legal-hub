@@ -58,12 +58,8 @@ const Register = () => {
       <div className="w-full max-w-lg">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-3 mb-4">
-            <img src={snadLogo} alt="سند" className="h-12 w-12 object-contain" />
-            <div className="flex flex-col items-start">
-              <span className="text-primary-foreground font-bold text-2xl leading-tight">سند</span>
-              <span className="text-secondary text-xs">SNAD KSA</span>
-            </div>
+          <Link to="/" className="inline-block mb-4">
+            <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-16 w-auto object-contain" />
           </Link>
           <h1 className="text-2xl font-bold text-primary-foreground mt-4">إنشاء حساب جديد</h1>
           <p className="text-primary-foreground/60 text-sm mt-2">انضم إلى منصة سند القانونية</p>

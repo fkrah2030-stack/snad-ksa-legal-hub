@@ -49,12 +49,8 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <img src={snadLogo} alt="سند" className="h-10 w-10 object-contain" />
-            <div className="flex flex-col">
-              <span className="text-primary-foreground font-bold text-xl leading-tight">سند</span>
-              <span className="text-secondary text-[10px] leading-tight">SNAD KSA</span>
-            </div>
+          <div className="flex items-center">
+            <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-12 md:h-14 w-auto object-contain" />
           </div>
 
           {/* Desktop Nav */}
