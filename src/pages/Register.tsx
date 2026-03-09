@@ -4,6 +4,7 @@ import { Mail, Lock, Eye, EyeOff, User, Phone, ArrowRight, Briefcase, Scale } fr
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import snadLogo from "@/assets/snad-logo.png";
 
 type AccountType = "client" | "lawyer";
@@ -21,7 +22,7 @@ const Register = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName || !email || !password || !confirmPassword) {
       toast.error("يرجى تعبئة جميع الحقول المطلوبة");
@@ -41,11 +42,37 @@ const Register = () => {
     }
 
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      toast.success("تم إنشاء الحساب بنجاح!");
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { full_name: fullName, phone, account_type: accountType },
+        emailRedirectTo: window.location.origin,
+      },
+    });
+    setIsLoading(false);
+
+    if (error) {
+      toast.error(error.message);
+    } else {
+      // If lawyer, add lawyer role and create lawyer record
+      if (accountType === "lawyer" && data.user) {
+        await supabase.from("user_roles").insert({ user_id: data.user.id, role: "lawyer" as any });
+        await supabase.from("lawyers").insert({
+          user_id: data.user.id,
+          name: fullName,
+          specialty: specialty || "عام",
+          city: "",
+          phone,
+          email,
+          license_number: licenseNumber,
+          is_verified: false,
+          is_active: false,
+        });
+      }
+      toast.success("تم إنشاء الحساب بنجاح! تحقق من بريدك الإلكتروني للتفعيل.");
       navigate("/login");
-    }, 1500);
+    }
   };
 
   const specialties = [
@@ -75,29 +102,17 @@ const Register = () => {
           <div className="space-y-2">
             <label className="text-primary-foreground/80 text-sm font-medium">نوع الحساب</label>
             <div className="grid grid-cols-2 gap-3">
-              <button
-                type="button"
-                onClick={() => setAccountType("client")}
+              <button type="button" onClick={() => setAccountType("client")}
                 className={`flex items-center justify-center gap-2 p-3.5 rounded-xl border transition-all text-sm font-medium ${
-                  accountType === "client"
-                    ? "bg-secondary/20 border-secondary text-secondary"
-                    : "bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground/60 hover:border-primary-foreground/30"
-                }`}
-              >
-                <User size={18} />
-                عميل
+                  accountType === "client" ? "bg-secondary/20 border-secondary text-secondary" : "bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground/60 hover:border-primary-foreground/30"
+                }`}>
+                <User size={18} /> عميل
               </button>
-              <button
-                type="button"
-                onClick={() => setAccountType("lawyer")}
+              <button type="button" onClick={() => setAccountType("lawyer")}
                 className={`flex items-center justify-center gap-2 p-3.5 rounded-xl border transition-all text-sm font-medium ${
-                  accountType === "lawyer"
-                    ? "bg-secondary/20 border-secondary text-secondary"
-                    : "bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground/60 hover:border-primary-foreground/30"
-                }`}
-              >
-                <Scale size={18} />
-                محامي
+                  accountType === "lawyer" ? "bg-secondary/20 border-secondary text-secondary" : "bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground/60 hover:border-primary-foreground/30"
+                }`}>
+                <Scale size={18} /> محامي
               </button>
             </div>
           </div>
@@ -107,13 +122,8 @@ const Register = () => {
             <label className="text-primary-foreground/80 text-sm font-medium">الاسم الكامل *</label>
             <div className="relative">
               <User className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-foreground/40" size={18} />
-              <Input
-                type="text"
-                placeholder="أدخل اسمك الكامل"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50"
-              />
+              <Input type="text" placeholder="أدخل اسمك الكامل" value={fullName} onChange={(e) => setFullName(e.target.value)}
+                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50" />
             </div>
           </div>
 
@@ -122,14 +132,8 @@ const Register = () => {
             <label className="text-primary-foreground/80 text-sm font-medium">البريد الإلكتروني *</label>
             <div className="relative">
               <Mail className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-foreground/40" size={18} />
-              <Input
-                type="email"
-                placeholder="example@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50"
-                dir="ltr"
-              />
+              <Input type="email" placeholder="example@email.com" value={email} onChange={(e) => setEmail(e.target.value)}
+                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50" dir="ltr" />
             </div>
           </div>
 
@@ -138,45 +142,28 @@ const Register = () => {
             <label className="text-primary-foreground/80 text-sm font-medium">رقم الجوال</label>
             <div className="relative">
               <Phone className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-foreground/40" size={18} />
-              <Input
-                type="tel"
-                placeholder="+966 5X XXX XXXX"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50"
-                dir="ltr"
-              />
+              <Input type="tel" placeholder="+966 5X XXX XXXX" value={phone} onChange={(e) => setPhone(e.target.value)}
+                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50" dir="ltr" />
             </div>
           </div>
 
-          {/* Lawyer-specific fields */}
+          {/* Lawyer fields */}
           {accountType === "lawyer" && (
             <>
               <div className="space-y-2">
                 <label className="text-primary-foreground/80 text-sm font-medium">رقم رخصة المحاماة *</label>
                 <div className="relative">
                   <Briefcase className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-foreground/40" size={18} />
-                  <Input
-                    type="text"
-                    placeholder="أدخل رقم الرخصة"
-                    value={licenseNumber}
-                    onChange={(e) => setLicenseNumber(e.target.value)}
-                    className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50"
-                  />
+                  <Input type="text" placeholder="أدخل رقم الرخصة" value={licenseNumber} onChange={(e) => setLicenseNumber(e.target.value)}
+                    className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50" />
                 </div>
               </div>
-
               <div className="space-y-2">
                 <label className="text-primary-foreground/80 text-sm font-medium">التخصص القانوني</label>
-                <select
-                  value={specialty}
-                  onChange={(e) => setSpecialty(e.target.value)}
-                  className="w-full bg-primary-foreground/5 border border-primary-foreground/15 text-primary-foreground rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-secondary/50"
-                >
+                <select value={specialty} onChange={(e) => setSpecialty(e.target.value)}
+                  className="w-full bg-primary-foreground/5 border border-primary-foreground/15 text-primary-foreground rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-secondary/50">
                   <option value="" className="bg-primary text-primary-foreground">اختر التخصص</option>
-                  {specialties.map((s) => (
-                    <option key={s} value={s} className="bg-primary text-primary-foreground">{s}</option>
-                  ))}
+                  {specialties.map((s) => <option key={s} value={s} className="bg-primary text-primary-foreground">{s}</option>)}
                 </select>
               </div>
             </>
@@ -187,19 +174,10 @@ const Register = () => {
             <label className="text-primary-foreground/80 text-sm font-medium">كلمة المرور *</label>
             <div className="relative">
               <Lock className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-foreground/40" size={18} />
-              <Input
-                type={showPassword ? "text" : "password"}
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 pl-10 py-3 rounded-xl focus:border-secondary/50"
-                dir="ltr"
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-primary-foreground/40 hover:text-primary-foreground/60"
-              >
+              <Input type={showPassword ? "text" : "password"} placeholder="••••••••" value={password} onChange={(e) => setPassword(e.target.value)}
+                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 pl-10 py-3 rounded-xl focus:border-secondary/50" dir="ltr" />
+              <button type="button" onClick={() => setShowPassword(!showPassword)}
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-primary-foreground/40 hover:text-primary-foreground/60">
                 {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
@@ -210,14 +188,8 @@ const Register = () => {
             <label className="text-primary-foreground/80 text-sm font-medium">تأكيد كلمة المرور *</label>
             <div className="relative">
               <Lock className="absolute right-3 top-1/2 -translate-y-1/2 text-primary-foreground/40" size={18} />
-              <Input
-                type={showPassword ? "text" : "password"}
-                placeholder="••••••••"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50"
-                dir="ltr"
-              />
+              <Input type={showPassword ? "text" : "password"} placeholder="••••••••" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
+                className="bg-primary-foreground/5 border-primary-foreground/15 text-primary-foreground placeholder:text-primary-foreground/30 pr-10 py-3 rounded-xl focus:border-secondary/50" dir="ltr" />
             </div>
           </div>
 
@@ -231,11 +203,7 @@ const Register = () => {
           </div>
 
           {/* Submit */}
-          <Button
-            type="submit"
-            disabled={isLoading}
-            className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold py-3 rounded-xl text-base"
-          >
+          <Button type="submit" disabled={isLoading} className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold py-3 rounded-xl text-base">
             {isLoading ? "جارِ إنشاء الحساب..." : "إنشاء حساب"}
           </Button>
 
