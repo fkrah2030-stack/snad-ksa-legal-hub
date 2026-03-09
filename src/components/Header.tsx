@@ -1,8 +1,19 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X, Scale } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Menu, X, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 import snadLogo from "@/assets/snad-logo.png";
+import type { User as SupaUser } from "@supabase/supabase-js";
 
 const navLinks = [
   { label: "الرئيسية", href: "#" },
