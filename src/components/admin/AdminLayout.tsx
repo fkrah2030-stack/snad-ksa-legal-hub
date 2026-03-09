@@ -38,8 +38,8 @@ const AdminLayout = () => {
               <h2 className="text-sm font-medium text-primary-foreground/70 hidden sm:block">لوحة تحكم الأدمن</h2>
             </div>
             <div className="flex items-center gap-3">
-              <button className="relative p-2 rounded-lg hover:bg-muted transition-colors">
-                <Bell size={18} className="text-muted-foreground" />
+              <button className="relative p-2 rounded-lg hover:bg-primary-foreground/10 transition-colors">
+                <Bell size={18} className="text-primary-foreground/70" />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-destructive rounded-full" />
               </button>
               <Avatar className="h-8 w-8 border border-border">
