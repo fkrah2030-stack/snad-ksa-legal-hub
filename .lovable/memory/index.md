@@ -8,20 +8,17 @@ Updated: now
 - Secondary: golden HSL(45, 93%, 47%) - for accents/CTAs
 - Font: Cairo + Tajawal (Arabic)
 - Direction: RTL
-- Background: white (light mode)
+- Theme color: #1e3a5f
 
 ## Architecture
-- Layout wraps public pages (Header + Footer)
-- Admin: /admin/* with Sidebar layout, protected by admin role check
-- Auth: Supabase Auth with user_roles table (app_role enum: admin, moderator, lawyer, user)
-- Auto profile creation on signup via trigger
+- Layout wraps all pages (Header + Footer + MobileBottomNav)
+- MobileBottomNav: fixed bottom nav on mobile, hidden on md+
+- Components: Hero, GovernmentPartner, PlatformSaleBanner, FeaturedLawyers, LegalServices, Statistics, Testimonials
+- PWA configured with vite-plugin-pwa
 
-## Database Tables
-- profiles, user_roles, lawyers, services, consultations
-- has_role() security definer function for RLS
-
-## Key Decisions
-- Logo: snad-logo.png
-- Outline buttons on dark bg: use variant="ghost" + border class (not outline which adds bg-background)
-- Admin added manually via database (no self-registration for admin)
-- Services managed from admin dashboard, displayed dynamically on site
+## Decisions
+- Logo generated as snad-logo.png
+- Hero background: hero-bg.jpg
+- Mobile-first approach with touch-friendly 44px min targets
+- framer-motion pinned to 11.18.2 (React 18 compat)
+- PWA icons: pwa-192x192.png, pwa-512x512.png
