@@ -49,9 +49,9 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-32 md:h-40 w-auto object-contain" />
-          </div>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
