@@ -4,6 +4,7 @@ import { Mail, Lock, Eye, EyeOff, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import snadLogo from "@/assets/snad-logo.png";
 
 const Login = () => {
@@ -13,18 +14,30 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) {
       toast.error("يرجى إدخال البريد الإلكتروني وكلمة المرور");
       return;
     }
     setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    setIsLoading(false);
+    if (error) {
+      toast.error(error.message === "Invalid login credentials" ? "بيانات الدخول غير صحيحة" : error.message);
+    } else {
       toast.success("تم تسجيل الدخول بنجاح");
+      // Check if admin
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data: roles } = await supabase.from("user_roles").select("role").eq("user_id", user.id);
+        if (roles?.some((r) => r.role === "admin")) {
+          navigate("/admin");
+          return;
+        }
+      }
       navigate("/");
-    }, 1500);
+    }
   };
 
   return (
@@ -107,15 +120,6 @@ const Login = () => {
               <span className="bg-transparent px-4 text-primary-foreground/40 text-xs">أو</span>
             </div>
           </div>
-
-          {/* Google */}
-          <Button
-            type="button"
-            variant="outline"
-            className="w-full border-primary-foreground/15 text-primary-foreground hover:bg-primary-foreground/5 py-3 rounded-xl"
-          >
-            تسجيل الدخول بحساب Google
-          </Button>
 
           {/* Register link */}
           <p className="text-center text-primary-foreground/50 text-sm pt-2">
