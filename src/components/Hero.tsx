@@ -2,6 +2,7 @@ import { Search, Shield, Users, Scale, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
+import snadLogo from "@/assets/snad-logo.png";
 
 const Hero = () => {
   return (
