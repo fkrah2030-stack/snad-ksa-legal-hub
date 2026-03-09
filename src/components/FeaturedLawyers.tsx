@@ -59,9 +59,11 @@ const FeaturedLawyers = () => {
                 <span className="text-secondary text-xs mr-1">{lawyer.rating}</span>
               </div>
 
-              <Button className="w-full bg-primary hover:bg-primary/80 text-primary-foreground text-sm">
-                احجز استشارة
-              </Button>
+              <Link to={`/lawyer/${lawyer.id}`}>
+                <Button className="w-full bg-primary hover:bg-primary/80 text-primary-foreground text-sm">
+                  احجز استشارة
+                </Button>
+              </Link>
             </div>
           ))}
         </div>
