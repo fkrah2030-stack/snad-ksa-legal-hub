@@ -3,7 +3,7 @@ import snadLogo from "@/assets/snad-logo.png";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-primary/60 backdrop-blur-md border-t border-primary-foreground/10 pt-16 pb-8">
+    <footer id="contact" className="bg-primary pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}

@@ -2,58 +2,65 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "عبدالله المالكي",
+    name: "سارة أحمد",
+    role: "سيدة أعمال",
+    text: "تجربتي مع منصة سند كانت ممتازة في مجال خدماتها القانونية وسرعة الاستجابة والاحترافية في التعامل.",
+    rating: 5,
+  },
+  {
+    name: "محمد العمري",
     role: "رجل أعمال",
-    text: "تجربة رائعة مع منصة سند، حصلت على محامي متخصص في القانون التجاري وأنهى قضيتي بنجاح خلال أسابيع قليلة.",
+    text: "منصة سند وفرت لي محامي متخصص في القانون التجاري ساعدني في حل نزاع تجاري معقد بأفضل النتائج.",
     rating: 5,
   },
   {
-    name: "فاطمة الزهراني",
+    name: "فاطمة المقبولي",
     role: "موظفة حكومية",
-    text: "المنصة سهلت عليّ كثيرًا البحث عن محامي متخصص في قضايا الأحوال الشخصية. أنصح بها الجميع.",
+    text: "أنصح بمنصة سند لكل من يبحث عن خدمات قانونية احترافية وموثوقة. تجربة رائعة من البداية للنهاية.",
     rating: 5,
-  },
-  {
-    name: "أحمد الغامدي",
-    role: "صاحب شركة",
-    text: "خدمة ممتازة واحترافية عالية. تمكنت من تأسيس شركتي بكل سهولة بفضل المحامين المعتمدين في المنصة.",
-    rating: 4,
   },
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-20">
+    <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
-          <span className="text-secondary text-sm font-semibold tracking-wider">آراء العملاء</span>
-          <h2 className="text-3xl md:text-4xl font-black text-primary-foreground mt-2 mb-4">
-            ماذا يقول <span className="text-secondary">عملاؤنا</span>
+          <h2 className="text-3xl md:text-4xl font-black text-foreground mt-2 mb-4">
+            آراء عملائنا
           </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            ثقة العملاء أكبر إنجازاتنا في منصة القانونية السعودية
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 rounded-2xl p-8 hover:border-secondary/20 transition-all duration-300"
+              className="bg-card border border-border rounded-2xl p-8 hover:shadow-lg transition-all duration-300"
             >
-              <Quote size={24} className="text-secondary/30 mb-4" />
-              <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">{t.text}</p>
-
+              {/* Stars */}
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    size={14}
-                    className={i < t.rating ? "star-golden fill-current" : "text-primary-foreground/20"}
+                    size={16}
+                    className={i < t.rating ? "text-secondary fill-secondary" : "text-muted"}
                   />
                 ))}
               </div>
 
-              <div className="border-t border-primary-foreground/10 pt-4">
-                <h4 className="text-primary-foreground font-bold text-sm">{t.name}</h4>
-                <p className="text-primary-foreground/50 text-xs">{t.role}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">{t.text}</p>
+
+              <div className="border-t border-border pt-4 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-primary font-bold text-sm">{t.name.charAt(0)}</span>
+                </div>
+                <div>
+                  <h4 className="text-foreground font-bold text-sm">{t.name}</h4>
+                  <p className="text-muted-foreground text-xs">{t.role}</p>
+                </div>
               </div>
             </div>
           ))}
