@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="relative min-h-[70vh] md:min-h-[85vh] flex items-center overflow-hidden bg-primary">
       {/* Background */}
       <div className="absolute inset-0">
-        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-20" />
+        <img src={heroBg} alt="" className="w-full h-full object-cover opacity-20" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/90 via-primary/70 to-primary" />
       </div>
 
