@@ -33,6 +33,51 @@ import ClientProfile from "./pages/client/ClientProfile.tsx";
 
 const queryClient = new QueryClient();
 
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+        <Route path="/login" element={<PageTransition><Login /></PageTransition>} />
+        <Route path="/register" element={<PageTransition><Register /></PageTransition>} />
+        <Route path="/lawyer/:id" element={<PageTransition><LawyerProfile /></PageTransition>} />
+        <Route path="/my-profile" element={<PageTransition><MyProfile /></PageTransition>} />
+        
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="lawyers" element={<AdminLawyers />} />
+          <Route path="users" element={<AdminUsers />} />
+          <Route path="consultations" element={<AdminConsultations />} />
+          <Route path="services" element={<AdminServices />} />
+        </Route>
+
+        {/* Lawyer Routes */}
+        <Route path="/lawyer-dashboard" element={<LawyerLayout />}>
+          <Route index element={<LawyerDashboard />} />
+          <Route path="consultations" element={<LawyerConsultations />} />
+          <Route path="appointments" element={<LawyerAppointments />} />
+          <Route path="reviews" element={<LawyerReviews />} />
+          <Route path="profile" element={<LawyerProfilePage />} />
+        </Route>
+
+        {/* Client Routes */}
+        <Route path="/client-dashboard" element={<ClientLayout />}>
+          <Route index element={<ClientDashboard />} />
+          <Route path="consultations" element={<ClientConsultations />} />
+          <Route path="contracts" element={<ClientContracts />} />
+          <Route path="payments" element={<ClientPayments />} />
+          <Route path="profile" element={<ClientProfile />} />
+        </Route>
+        
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -40,43 +85,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AuthProvider>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/lawyer/:id" element={<LawyerProfile />} />
-            <Route path="/my-profile" element={<MyProfile />} />
-            
-            {/* Admin Routes */}
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route index element={<Dashboard />} />
-              <Route path="lawyers" element={<AdminLawyers />} />
-              <Route path="users" element={<AdminUsers />} />
-              <Route path="consultations" element={<AdminConsultations />} />
-              <Route path="services" element={<AdminServices />} />
-            </Route>
-
-            {/* Lawyer Routes */}
-            <Route path="/lawyer-dashboard" element={<LawyerLayout />}>
-              <Route index element={<LawyerDashboard />} />
-              <Route path="consultations" element={<LawyerConsultations />} />
-              <Route path="appointments" element={<LawyerAppointments />} />
-              <Route path="reviews" element={<LawyerReviews />} />
-              <Route path="profile" element={<LawyerProfilePage />} />
-            </Route>
-
-            {/* Client Routes */}
-            <Route path="/client-dashboard" element={<ClientLayout />}>
-              <Route index element={<ClientDashboard />} />
-              <Route path="consultations" element={<ClientConsultations />} />
-              <Route path="contracts" element={<ClientContracts />} />
-              <Route path="payments" element={<ClientPayments />} />
-              <Route path="profile" element={<ClientProfile />} />
-            </Route>
-            
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatedRoutes />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
