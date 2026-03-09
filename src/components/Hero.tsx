@@ -42,7 +42,7 @@ const Hero = () => {
             <Link to="/register">
               <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-3 rounded-xl text-base gap-2">
                 <ChevronDown size={18} />
-                سجّل منصة أكبر
+                سجل معنا
               </Button>
             </Link>
             <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 py-3 rounded-xl text-base">
