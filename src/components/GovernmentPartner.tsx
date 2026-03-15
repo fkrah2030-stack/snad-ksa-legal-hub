@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 import snadLogo from "@/assets/snad-logo.png";
 
 const partners = [
-  "وزارة العدل",
-  "هيئة المحامين",
-  "وزارة التجارة",
-  "ديوان المظالم",
-  "المركز السعودي للتحكيم",
-];
+"وزارة العدل",
+"هيئة المحامين",
+"وزارة التجارة",
+"ديوان المظالم",
+"المركز السعودي للتحكيم"];
+
 
 const GovernmentPartner = () => {
   return (
@@ -22,15 +22,15 @@ const GovernmentPartner = () => {
               مرجع شامل لجميع الخدمات القانونية والمحاماة. سهولة الوصول لمعلومات قانونية موثوقة عبر سهولة
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-6">
-              {partners.map((name) => (
-                <div
-                  key={name}
-                  className="flex items-center gap-2 bg-background border border-border rounded-full px-4 py-2"
-                >
+              {partners.map((name) =>
+              <div
+                key={name}
+                className="flex items-center gap-2 bg-background border border-border rounded-full px-4 py-2">
+                
                   <Building2 size={14} className="text-secondary" />
                   <span className="text-foreground text-xs font-medium">{name}</span>
                 </div>
-              ))}
+              )}
             </div>
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-xl gap-2">
               <ExternalLink size={16} />
@@ -39,14 +39,14 @@ const GovernmentPartner = () => {
           </div>
           {/* Icon/Image */}
           <div className="flex-shrink-0">
-            <div className="bg-secondary/10 rounded-3xl p-6 flex items-center justify-center">
+            <div className="rounded-3xl p-6 flex items-center justify-center bg-primary">
               <img src={snadLogo} alt="سند" className="h-48 w-auto object-contain" />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default GovernmentPartner;
