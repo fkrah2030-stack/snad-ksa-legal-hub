@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import snadLogo from "@/assets/snad-logo.png";
 
 const Footer = () => {
