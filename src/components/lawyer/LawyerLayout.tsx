@@ -46,7 +46,7 @@ const LawyerLayout = () => {
 
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full font-arabic bg-muted/30" dir="rtl">
+      <div className="min-h-screen flex w-full font-arabic bg-muted" dir="rtl">
         {/* Desktop Sidebar */}
         <div className="hidden md:block">
           <LawyerSidebar />
