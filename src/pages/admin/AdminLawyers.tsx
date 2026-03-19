@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Search, Plus, CheckCircle2, XCircle, Edit, Trash2 } from "lucide-react";
+import { Search, CheckCircle2, XCircle, Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import AddLawyerDialog from "@/components/admin/AddLawyerDialog";
 
 interface Lawyer {
   id: string;
@@ -73,10 +74,7 @@ const AdminLawyers = () => {
           <h1 className="text-2xl font-bold text-foreground">إدارة المحامين</h1>
           <p className="text-muted-foreground text-sm mt-1">{lawyers.length} محامي مسجل</p>
         </div>
-        <Button className="bg-primary text-primary-foreground gap-2">
-          <Plus size={16} />
-          إضافة محامي
-        </Button>
+        <AddLawyerDialog onSuccess={fetchLawyers} />
       </div>
 
       <Card>
