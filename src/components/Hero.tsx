@@ -1,7 +1,8 @@
-import { Search, Shield, Users, Scale } from "lucide-react";
+import { Search, Shield, Users, Scale, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
+import najizLogo from "@/assets/najiz-logo.svg";
 
 const Hero = () => {
   return (
