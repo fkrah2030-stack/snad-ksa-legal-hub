@@ -118,19 +118,6 @@ const Login = () => {
             {isLoading ? "جارِ تسجيل الدخول..." : "تسجيل الدخول"}
           </Button>
 
-          {/* Demo login */}
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => {
-              setEmail("client@demo.com");
-              setPassword("123456");
-            }}
-            className="w-full border-primary-foreground/20 text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground rounded-xl gap-2"
-          >
-            <UserCheck size={16} />
-            تجربة كعميل (حساب تجريبي)
-          </Button>
 
           {/* Divider */}
           <div className="relative my-4">
