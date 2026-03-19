@@ -18,6 +18,7 @@ import AdminLawyers from "./pages/admin/AdminLawyers.tsx";
 import AdminUsers from "./pages/admin/AdminUsers.tsx";
 import AdminConsultations from "./pages/admin/AdminConsultations.tsx";
 import AdminServices from "./pages/admin/AdminServices.tsx";
+import AdminSettings from "./pages/admin/AdminSettings.tsx";
 import LawyerLayout from "./components/lawyer/LawyerLayout.tsx";
 import LawyerDashboard from "./pages/lawyer/LawyerDashboard.tsx";
 import LawyerConsultations from "./pages/lawyer/LawyerConsultations.tsx";
