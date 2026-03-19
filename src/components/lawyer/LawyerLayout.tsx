@@ -113,23 +113,7 @@ const LawyerLayout = () => {
                     </div>
                   )}
                   <div className="flex items-center gap-2">
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <button className="relative p-2 rounded-lg hover:bg-primary-foreground/10 transition-colors">
-                          <Bell size={18} className="text-primary-foreground/60" />
-                          <span className="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full"></span>
-                        </button>
-                      </PopoverTrigger>
-                      <PopoverContent align="start" className="w-72 p-0" dir="rtl">
-                        <div className="p-3 border-b border-border">
-                          <h3 className="font-bold text-sm">الإشعارات</h3>
-                        </div>
-                        <div className="p-6 text-center text-muted-foreground text-sm">
-                          <Bell size={24} className="mx-auto mb-2 opacity-30" />
-                          لا توجد إشعارات جديدة
-                        </div>
-                      </PopoverContent>
-                    </Popover>
+                    <NotificationsPopover />
                     <Avatar className="h-9 w-9 border border-primary-foreground/20 sm:hidden">
                       <AvatarFallback className="bg-secondary/20 text-secondary text-xs font-bold">
                         {displayName.charAt(0)}
