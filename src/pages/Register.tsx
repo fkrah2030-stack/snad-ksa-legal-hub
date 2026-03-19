@@ -195,15 +195,15 @@ const Register = () => {
           </div>
 
           {/* Terms */}
-          <label htmlFor="terms" className="flex items-center gap-3 cursor-pointer group py-2 select-none">
+          <label htmlFor="terms" className="inline-flex items-center gap-2 cursor-pointer select-none">
             <Checkbox
               id="terms"
               required
-              className="h-5 w-5 shrink-0 rounded border-2 border-primary-foreground/30 ring-offset-background transition-all duration-200 hover:border-secondary/70 focus-visible:ring-2 focus-visible:ring-secondary/50 focus-visible:ring-offset-2 data-[state=checked]:bg-secondary data-[state=checked]:border-secondary data-[state=checked]:text-secondary-foreground group-hover:border-secondary/60"
+              className="!h-4 !w-4 !min-h-0 !min-w-0 !p-0 !m-0 shrink-0 grow-0 basis-4 rounded-[3px] border border-white/30 data-[state=checked]:bg-secondary data-[state=checked]:border-secondary data-[state=checked]:text-secondary-foreground"
             />
-            <span className="text-primary-foreground/60 text-sm leading-relaxed group-hover:text-primary-foreground/80 transition-colors">
-              أوافق على <a href="#" className="text-secondary hover:underline font-medium" onClick={e => e.stopPropagation()}>شروط الاستخدام</a> و{" "}
-              <a href="#" className="text-secondary hover:underline font-medium" onClick={e => e.stopPropagation()}>سياسة الخصوصية</a>
+            <span className="text-primary-foreground/60 text-sm leading-none">
+              أوافق على <a href="#" className="text-secondary hover:underline" onClick={e => e.stopPropagation()}>شروط الاستخدام</a> و{" "}
+              <a href="#" className="text-secondary hover:underline" onClick={e => e.stopPropagation()}>سياسة الخصوصية</a>
             </span>
           </label>
 
