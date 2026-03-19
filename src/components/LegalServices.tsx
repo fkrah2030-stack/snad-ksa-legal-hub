@@ -62,7 +62,7 @@ const LegalServices = () => {
                     </div>
                     <h3 className="text-foreground font-bold text-lg mb-2">{service.title}</h3>
                     <p className="text-muted-foreground text-sm mb-5">{service.description}</p>
-                    <Link to="/login">
+                    <Link to="/instant-consultation">
                       <Button variant="outline" className="border-border text-primary hover:bg-primary hover:text-primary-foreground rounded-xl text-sm font-medium transition-colors">
                         طلب استشارة
                       </Button>
