@@ -12,11 +12,17 @@ const GovernmentPartner = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="bg-gradient-to-l from-primary/5 via-muted/50 to-muted/30 border border-border rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
-          {/* Content */}
-          <div className="flex-1 text-center md:text-right order-2 md:order-1">
+        <div className="bg-gradient-to-l from-primary/5 via-muted/50 to-muted/30 border border-border rounded-3xl p-8 md:p-12 flex flex-col md:flex-row-reverse items-center gap-8">
+          {/* Logo - Right side in RTL */}
+          <div className="flex-shrink-0">
+            <div className="bg-white border border-border rounded-3xl p-6 flex items-center justify-center">
+              <img src={mojLogo} alt="وزارة العدل" className="h-28 md:h-36 w-auto object-contain" />
+            </div>
+          </div>
+          {/* Content - Left side in RTL */}
+          <div className="flex-1 text-center md:text-right">
             <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">البوابة القانونية الرسمية</h3>
-            <p className="text-muted-foreground text-sm mb-8 max-w-lg">
+            <p className="text-muted-foreground text-sm mb-8 max-w-lg md:mr-0 md:ml-auto">
               مرجع مهم للمهتمين بالشأن القانوني والقضائي - يسهل الوصول للمعلومة النظامية بكل سهولة
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-8">
@@ -37,12 +43,6 @@ const GovernmentPartner = () => {
                   زيارة البوابة القانونية
                 </Button>
               </a>
-            </div>
-          </div>
-          {/* Logo */}
-          <div className="flex-shrink-0 order-1 md:order-2">
-            <div className="bg-white border border-border rounded-3xl p-8 flex items-center justify-center">
-              <img src={mojLogo} alt="وزارة العدل" className="h-24 md:h-32 w-auto object-contain" />
             </div>
           </div>
         </div>
