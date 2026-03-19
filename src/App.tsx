@@ -34,6 +34,7 @@ import ClientConsultations from "./pages/client/ClientConsultations.tsx";
 import ClientContracts from "./pages/client/ClientContracts.tsx";
 import ClientPayments from "./pages/client/ClientPayments.tsx";
 import ClientProfile from "./pages/client/ClientProfile.tsx";
+import InstantConsultation from "./pages/InstantConsultation.tsx";
 
 const queryClient = new QueryClient();
 
