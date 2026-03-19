@@ -26,15 +26,26 @@ const navLinks = [
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [user, setUser] = useState<SupaUser | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleNavClick = useCallback((href: string) => {
     setIsOpen(false);
     if (href === "/") {
       navigate("/");
       window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    if (href.startsWith("/") && !href.includes("#")) {
+      navigate(href);
       return;
     }
     const hash = href.replace("/", "");
@@ -67,35 +78,36 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-primary/95 backdrop-blur-md border-b border-primary-foreground/10">
+    <header className={`sticky top-0 z-50 transition-all duration-500 ${scrolled ? "bg-navy-deep/95 backdrop-blur-xl shadow-2xl shadow-navy-deep/20" : "bg-primary/90 backdrop-blur-md"} border-b border-gold/10`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src={snadLogo} alt="سند - خدمات القانون والمحامين" className="h-32 md:h-40 w-auto object-contain" />
+          <Link to="/" className="flex items-center group">
+            <img src={snadLogo} alt="سند" className="h-28 md:h-36 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNavClick(link.href)}
-                className="text-primary-foreground/80 hover:text-secondary transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
+                className="relative text-primary-foreground/70 hover:text-gold transition-all duration-300 text-sm font-medium bg-transparent border-none cursor-pointer px-4 py-2 rounded-lg hover:bg-gold/5 group"
               >
                 {link.label}
+                <span className="absolute bottom-1 right-4 left-4 h-0.5 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-right rounded-full" />
               </button>
             ))}
           </nav>
 
           {/* CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             {user ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-                    <Avatar className="h-9 w-9 border-2 border-secondary">
-                      <AvatarFallback className="bg-secondary text-secondary-foreground text-sm font-bold">
+                    <Avatar className="h-10 w-10 golden-ring">
+                      <AvatarFallback className="bg-gold text-secondary-foreground text-sm font-bold font-display">
                         {user.email?.charAt(0).toUpperCase() || "م"}
                       </AvatarFallback>
                     </Avatar>
@@ -120,12 +132,12 @@ const Header = () => {
             ) : (
               <>
                 <Link to="/login">
-                  <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 text-sm">
+                  <Button variant="ghost" className="border border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/5 hover:border-gold/30 text-sm rounded-xl transition-all duration-300">
                     تسجيل دخول
                   </Button>
                 </Link>
                 <Link to="/register">
-                  <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground text-sm font-bold">
+                  <Button className="bg-gold hover:bg-gold-dark text-secondary-foreground text-sm font-bold rounded-xl shadow-lg shadow-gold/20 hover:shadow-gold/30 transition-all duration-300">
                     انضم كمحامي
                   </Button>
                 </Link>
@@ -135,7 +147,7 @@ const Header = () => {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-primary-foreground"
+            className="lg:hidden text-primary-foreground p-2 hover:bg-gold/10 rounded-xl transition-colors"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -144,39 +156,39 @@ const Header = () => {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-primary-foreground/10 mt-2 pt-4">
-            <nav className="flex flex-col gap-3">
+          <div className="lg:hidden pb-6 border-t border-gold/10 mt-2 pt-4 animate-fade-in">
+            <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <button
                   key={link.label}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-primary-foreground/80 hover:text-secondary transition-colors py-2 text-sm bg-transparent border-none cursor-pointer text-right"
+                  className="text-primary-foreground/70 hover:text-gold hover:bg-gold/5 transition-all duration-300 py-3 px-4 text-sm bg-transparent border-none cursor-pointer text-right rounded-xl"
                 >
                   {link.label}
                 </button>
               ))}
               {user ? (
-                <div className="flex flex-col gap-2 mt-3">
+                <div className="flex flex-col gap-2 mt-4">
                   <Link to="/my-profile" onClick={() => setIsOpen(false)}>
-                    <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground w-full text-sm gap-2">
+                    <Button variant="ghost" className="border border-primary-foreground/20 text-primary-foreground w-full text-sm gap-2 rounded-xl">
                       <User size={16} />
                       الملف الشخصي
                     </Button>
                   </Link>
-                  <Button onClick={() => { handleLogout(); setIsOpen(false); }} variant="ghost" className="border border-destructive/30 text-destructive w-full text-sm gap-2">
+                  <Button onClick={() => { handleLogout(); setIsOpen(false); }} variant="ghost" className="border border-destructive/30 text-destructive w-full text-sm gap-2 rounded-xl">
                     <LogOut size={16} />
                     تسجيل الخروج
                   </Button>
                 </div>
               ) : (
-                <div className="flex gap-2 mt-3">
+                <div className="flex gap-2 mt-4">
                   <Link to="/login" className="flex-1" onClick={() => setIsOpen(false)}>
-                    <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground w-full text-sm">
+                    <Button variant="ghost" className="border border-primary-foreground/20 text-primary-foreground w-full text-sm rounded-xl">
                       تسجيل دخول
                     </Button>
                   </Link>
                   <Link to="/register" className="flex-1" onClick={() => setIsOpen(false)}>
-                    <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground w-full text-sm font-bold">
+                    <Button className="bg-gold hover:bg-gold-dark text-secondary-foreground w-full text-sm font-bold rounded-xl">
                       انضم كمحامي
                     </Button>
                   </Link>
