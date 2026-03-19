@@ -1,7 +1,8 @@
-import { Search, Shield, Users, Scale } from "lucide-react";
+import { Search, Shield, Users, Scale, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import heroBg from "@/assets/hero-bg.jpg";
+import najizLogo from "@/assets/najiz-logo.svg";
 
 const Hero = () => {
   return (
@@ -27,15 +28,18 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-8 animate-fade-in" style={{ animationDelay: "0.25s" }}>
+            <a href="https://najiz.sa/applications/landing" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-3 rounded-xl text-base gap-3">
+                <ExternalLink size={16} />
+                دخول منصة ناجز
+                <img src={najizLogo} alt="ناجز" className="h-6 w-auto" />
+              </Button>
+            </a>
             <Link to="/register">
-              <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold px-8 py-3 rounded-xl text-base gap-2">
-                
+              <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 py-3 rounded-xl text-base">
                 سجل معنا
               </Button>
             </Link>
-            <Button variant="ghost" className="border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 px-8 py-3 rounded-xl text-base">
-              ابحث الآن
-            </Button>
           </div>
 
           {/* Search bar */}
