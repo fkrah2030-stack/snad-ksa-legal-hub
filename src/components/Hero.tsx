@@ -15,11 +15,6 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/20 rounded-full px-5 py-2 mb-8 opacity-0 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-            <span className="w-2 h-2 bg-gold rounded-full animate-pulse" />
-            <span className="text-gold text-sm font-medium font-display">جرب النسخة التجريبية الآن</span>
-          </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] mb-3 opacity-0 animate-fade-in font-display" style={{ animationDelay: "0.2s" }}>
             <span className="text-white">منصة </span><span className="text-gold">سند</span>
