@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { AdminSidebar } from "./AdminSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Loader2, Bell } from "lucide-react";
+import { Loader2, Bell, Globe, Calendar, RefreshCw } from "lucide-react";
 
 const AdminLayout = () => {
   const { user, loading, isAdmin } = useAuth();
