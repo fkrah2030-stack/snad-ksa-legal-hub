@@ -14,6 +14,72 @@ export type Database = {
   }
   public: {
     Tables: {
+      case_requests: {
+        Row: {
+          budget: number | null
+          client_id: string
+          client_name: string
+          client_phone: string | null
+          contact_method: string
+          created_at: string
+          description: string
+          id: string
+          lawyer_id: string
+          notes: string | null
+          service_id: string | null
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          budget?: number | null
+          client_id: string
+          client_name?: string
+          client_phone?: string | null
+          contact_method?: string
+          created_at?: string
+          description?: string
+          id?: string
+          lawyer_id: string
+          notes?: string | null
+          service_id?: string | null
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          budget?: number | null
+          client_id?: string
+          client_name?: string
+          client_phone?: string | null
+          contact_method?: string
+          created_at?: string
+          description?: string
+          id?: string
+          lawyer_id?: string
+          notes?: string | null
+          service_id?: string | null
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "case_requests_lawyer_id_fkey"
+            columns: ["lawyer_id"]
+            isOneToOne: false
+            referencedRelation: "lawyers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "case_requests_service_id_fkey"
+            columns: ["service_id"]
+            isOneToOne: false
+            referencedRelation: "lawyer_services"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       consultations: {
         Row: {
           client_id: string
@@ -57,6 +123,53 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "consultations_lawyer_id_fkey"
+            columns: ["lawyer_id"]
+            isOneToOne: false
+            referencedRelation: "lawyers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lawyer_services: {
+        Row: {
+          allow_call: boolean
+          allow_chat: boolean
+          created_at: string
+          description: string
+          id: string
+          is_active: boolean
+          lawyer_id: string
+          price: number
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          allow_call?: boolean
+          allow_chat?: boolean
+          created_at?: string
+          description?: string
+          id?: string
+          is_active?: boolean
+          lawyer_id: string
+          price?: number
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          allow_call?: boolean
+          allow_chat?: boolean
+          created_at?: string
+          description?: string
+          id?: string
+          is_active?: boolean
+          lawyer_id?: string
+          price?: number
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lawyer_services_lawyer_id_fkey"
             columns: ["lawyer_id"]
             isOneToOne: false
             referencedRelation: "lawyers"
