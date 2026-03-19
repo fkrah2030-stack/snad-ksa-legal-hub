@@ -51,6 +51,8 @@ const AnimatedRoutes = () => {
         <Route path="/lawyer/:id" element={<PageTransition><LawyerProfile /></PageTransition>} />
         <Route path="/my-profile" element={<PageTransition><MyProfile /></PageTransition>} />
         <Route path="/instant-consultation" element={<PageTransition><InstantConsultation /></PageTransition>} />
+        <Route path="/terms" element={<PageTransition><TermsOfUse /></PageTransition>} />
+        <Route path="/privacy" element={<PageTransition><PrivacyPolicy /></PageTransition>} />
         
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
