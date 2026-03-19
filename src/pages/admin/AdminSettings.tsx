@@ -34,7 +34,7 @@ const AdminSettings = () => {
               </div>
               <div className="space-y-2">
                 <Label>رقم الهاتف</Label>
-                <Input defaultValue="+966 50 000 0000" dir="ltr" />
+                <Input defaultValue="+966 550883746" dir="ltr" />
               </div>
               <div className="space-y-2">
                 <Label>العنوان</Label>
