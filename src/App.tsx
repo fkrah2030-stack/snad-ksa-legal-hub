@@ -34,6 +34,7 @@ import ClientConsultations from "./pages/client/ClientConsultations.tsx";
 import ClientContracts from "./pages/client/ClientContracts.tsx";
 import ClientPayments from "./pages/client/ClientPayments.tsx";
 import ClientProfile from "./pages/client/ClientProfile.tsx";
+import InstantConsultation from "./pages/InstantConsultation.tsx";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +48,7 @@ const AnimatedRoutes = () => {
         <Route path="/register" element={<PageTransition><Register /></PageTransition>} />
         <Route path="/lawyer/:id" element={<PageTransition><LawyerProfile /></PageTransition>} />
         <Route path="/my-profile" element={<PageTransition><MyProfile /></PageTransition>} />
+        <Route path="/instant-consultation" element={<PageTransition><InstantConsultation /></PageTransition>} />
         
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
