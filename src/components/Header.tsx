@@ -19,6 +19,7 @@ const navLinks = [
   { label: "الرئيسية", href: "/" },
   { label: "خدماتنا", href: "/#services" },
   { label: "المحامين", href: "/#lawyers" },
+  { label: "الخدمات السريعة", href: "/instant-consultation" },
   { label: "من نحن", href: "/#about" },
   { label: "تواصل معنا", href: "/#contact" },
 ];
