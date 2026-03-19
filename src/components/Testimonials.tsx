@@ -38,7 +38,7 @@ const Testimonials = () => {
           {testimonials.map((t, index) => (
             <div
               key={t.name}
-              className="relative bg-card border border-border rounded-3xl p-8 hover:shadow-2xl hover:shadow-navy/6 transition-all duration-500 group hover:-translate-y-2 opacity-0 animate-fade-in"
+              className="relative bg-card border border-border rounded-3xl p-8 hover:shadow-2xl hover:shadow-navy/6 transition-all duration-500 group hover:-translate-y-2 animate-fade-in"
               style={{ animationDelay: `${0.1 + index * 0.15}s` }}
             >
               {/* Quote icon */}

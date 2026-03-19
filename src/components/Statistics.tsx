@@ -30,7 +30,7 @@ const Statistics = () => {
           {stats.map((stat, index) => (
             <div
               key={stat.label}
-              className="text-center opacity-0 animate-count-up group"
+              className="text-center animate-count-up group"
               style={{ animationDelay: `${0.2 + index * 0.15}s` }}
             >
               <div className="bg-gold/10 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/15 group-hover:scale-110 transition-all duration-500">
