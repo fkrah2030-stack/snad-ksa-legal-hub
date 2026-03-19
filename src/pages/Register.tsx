@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff, User, Phone, ArrowRight, Briefcase, Scale } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -194,9 +195,9 @@ const Register = () => {
           </div>
 
           {/* Terms */}
-          <div className="flex items-start gap-2">
-            <input type="checkbox" id="terms" className="mt-1 accent-secondary" required />
-            <label htmlFor="terms" className="text-primary-foreground/50 text-xs leading-relaxed">
+           <div className="flex items-start gap-3">
+            <Checkbox id="terms" required className="mt-0.5 h-4 w-4 border-primary-foreground/30 data-[state=checked]:bg-secondary data-[state=checked]:border-secondary" />
+            <label htmlFor="terms" className="text-primary-foreground/50 text-xs leading-relaxed cursor-pointer">
               أوافق على <a href="#" className="text-secondary hover:underline">شروط الاستخدام</a> و{" "}
               <a href="#" className="text-secondary hover:underline">سياسة الخصوصية</a>
             </label>
