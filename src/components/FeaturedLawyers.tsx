@@ -132,9 +132,11 @@ const FeaturedLawyers = () => {
                       استشارة
                     </Button>
                   </Link>
-                  <Button variant="outline" size="icon" className="border-border rounded-xl h-10 w-10">
-                    <Phone size={16} className="text-primary" />
-                  </Button>
+                  <Link to={`/lawyer/${lawyer.id}`}>
+                    <Button variant="outline" size="icon" className="border-border rounded-xl h-10 w-10">
+                      <Phone size={16} className="text-primary" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
