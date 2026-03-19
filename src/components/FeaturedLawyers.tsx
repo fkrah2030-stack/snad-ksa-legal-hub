@@ -76,7 +76,7 @@ const FeaturedLawyers = () => {
                   </div>
                 )}
                 <div className="w-22 h-22 rounded-full golden-ring bg-primary-foreground/10 mx-auto mb-4 flex items-center justify-center relative z-10" style={{ width: '5.5rem', height: '5.5rem' }}>
-                  <span className="text-3xl font-bold text-gold font-display">{lawyer.name.charAt(0)}</span>
+                  <Scale size={32} className="text-gold" />
                 </div>
                 <h3 className="text-primary-foreground font-bold text-lg relative z-10 font-display">{lawyer.name}</h3>
                 <p className="text-primary-foreground/50 text-xs mt-1 relative z-10">{lawyer.title}</p>
