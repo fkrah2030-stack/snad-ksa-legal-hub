@@ -103,9 +103,9 @@ export function LawyerSidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="border-t border-border p-3 space-y-1">
+      <div className="border-t border-sidebar-border p-3 space-y-1">
         <Link to="/">
-          <Button variant="ghost" size="sm" className="w-full justify-start gap-2 text-muted-foreground text-xs rounded-xl">
+          <Button variant="ghost" size="sm" className="w-full justify-start gap-2 text-sidebar-foreground/60 hover:text-sidebar-foreground hover:bg-sidebar-accent/50 text-xs rounded-xl">
             <Home size={14} />
             العودة للموقع
           </Button>
@@ -114,7 +114,7 @@ export function LawyerSidebar() {
           variant="ghost"
           size="sm"
           onClick={handleLogout}
-          className="w-full justify-start gap-2 text-destructive text-xs rounded-xl"
+          className="w-full justify-start gap-2 text-destructive hover:bg-sidebar-accent/50 text-xs rounded-xl"
         >
           <LogOut size={14} />
           تسجيل الخروج
