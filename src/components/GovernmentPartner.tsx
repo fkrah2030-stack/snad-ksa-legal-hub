@@ -1,6 +1,6 @@
 import { BookOpen, TrendingUp, FileText, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mojLogo from "@/assets/moj-logo.png";
+import mojLogo from "@/assets/moj-logo.svg";
 
 const features = [
   { icon: FileText, label: "شروح للأنظمة والأحكام القضائية" },
@@ -41,8 +41,8 @@ const GovernmentPartner = () => {
           </div>
           {/* Logo */}
           <div className="flex-shrink-0 order-1 md:order-2">
-            <div className="bg-primary/5 border border-primary/10 rounded-3xl p-8 flex items-center justify-center">
-              <img src={mojLogo} alt="وزارة العدل" className="h-36 md:h-44 w-auto object-contain" />
+            <div className="bg-white border border-border rounded-3xl p-8 flex items-center justify-center">
+              <img src={mojLogo} alt="وزارة العدل" className="h-24 md:h-32 w-auto object-contain" />
             </div>
           </div>
         </div>
