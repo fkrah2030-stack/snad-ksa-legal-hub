@@ -1,4 +1,4 @@
-import { Star, MapPin, Briefcase, Phone, CheckCircle2 } from "lucide-react";
+import { Star, MapPin, Briefcase, Phone, CheckCircle2, Scale } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
