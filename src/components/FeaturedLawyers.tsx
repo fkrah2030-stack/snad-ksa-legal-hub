@@ -144,9 +144,11 @@ const FeaturedLawyers = () => {
         </div>
 
         <div className="text-center mt-10">
-          <Button variant="outline" className="border-border text-foreground hover:bg-muted rounded-xl">
-            عرض جميع المحامين
-          </Button>
+          <Link to="/lawyer/1">
+            <Button variant="outline" className="border-border text-foreground hover:bg-muted rounded-xl">
+              عرض جميع المحامين
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

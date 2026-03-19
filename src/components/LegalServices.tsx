@@ -73,9 +73,11 @@ const LegalServices = () => {
         </div>
 
         <div className="text-center mt-10">
-          <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold rounded-xl px-8">
-            عرض جميع الخدمات
-          </Button>
+          <Link to="/login">
+            <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold rounded-xl px-8">
+              عرض جميع الخدمات
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
