@@ -55,7 +55,7 @@ const LegalServices = () => {
                 return (
                   <div
                     key={service.id}
-                    className="bg-card border border-border rounded-3xl p-9 hover:shadow-2xl hover:shadow-navy/6 transition-all duration-500 group hover:-translate-y-2 text-center opacity-0 animate-fade-in"
+                    className="bg-card border border-border rounded-3xl p-9 hover:shadow-2xl hover:shadow-navy/6 transition-all duration-500 group hover:-translate-y-2 text-center animate-fade-in"
                     style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                   >
                     <div className="bg-gold/8 w-18 h-18 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/15 group-hover:scale-110 transition-all duration-500" style={{ width: '4.5rem', height: '4.5rem' }}>

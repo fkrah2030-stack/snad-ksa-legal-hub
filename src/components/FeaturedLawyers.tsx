@@ -61,7 +61,7 @@ const FeaturedLawyers = () => {
           {lawyers.map((lawyer, index) => (
             <div
               key={lawyer.id}
-              className="bg-card border border-border rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-navy/8 transition-all duration-500 group hover:-translate-y-2 opacity-0 animate-fade-in"
+              className="bg-card border border-border rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-navy/8 transition-all duration-500 group hover:-translate-y-2 animate-fade-in"
               style={{ animationDelay: `${0.1 + index * 0.15}s` }}
             >
               {/* Card Header */}
