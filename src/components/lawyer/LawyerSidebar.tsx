@@ -8,6 +8,8 @@ import {
   LogOut,
   Home,
   FileText,
+  Briefcase,
+  Inbox,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation, useNavigate, Link } from "react-router-dom";
@@ -29,6 +31,8 @@ import { Button } from "@/components/ui/button";
 
 const mainItems = [
   { title: "لوحة التحكم", url: "/lawyer-dashboard", icon: LayoutDashboard },
+  { title: "خدماتي", url: "/lawyer-dashboard/services", icon: Briefcase },
+  { title: "القضايا", url: "/lawyer-dashboard/cases", icon: Inbox },
   { title: "الاستشارات", url: "/lawyer-dashboard/consultations", icon: MessageSquare },
   { title: "المواعيد", url: "/lawyer-dashboard/appointments", icon: Calendar },
   { title: "التقييمات", url: "/lawyer-dashboard/reviews", icon: Star },

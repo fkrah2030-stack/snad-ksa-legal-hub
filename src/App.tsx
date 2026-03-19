@@ -25,6 +25,8 @@ import LawyerConsultations from "./pages/lawyer/LawyerConsultations.tsx";
 import LawyerAppointments from "./pages/lawyer/LawyerAppointments.tsx";
 import LawyerReviews from "./pages/lawyer/LawyerReviews.tsx";
 import LawyerProfilePage from "./pages/lawyer/LawyerProfile.tsx";
+import LawyerServices from "./pages/lawyer/LawyerServices.tsx";
+import LawyerCases from "./pages/lawyer/LawyerCases.tsx";
 import ClientLayout from "./components/client/ClientLayout.tsx";
 import ClientDashboard from "./pages/client/ClientDashboard.tsx";
 import ClientConsultations from "./pages/client/ClientConsultations.tsx";
@@ -58,6 +60,8 @@ const AnimatedRoutes = () => {
         {/* Lawyer Routes */}
         <Route path="/lawyer-dashboard" element={<LawyerLayout />}>
           <Route index element={<LawyerDashboard />} />
+          <Route path="services" element={<LawyerServices />} />
+          <Route path="cases" element={<LawyerCases />} />
           <Route path="consultations" element={<LawyerConsultations />} />
           <Route path="appointments" element={<LawyerAppointments />} />
           <Route path="reviews" element={<LawyerReviews />} />
