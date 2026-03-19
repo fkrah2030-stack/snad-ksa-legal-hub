@@ -1,0 +1,2 @@
+INSERT INTO lawyers (name, specialty, city, phone, email, license_number, experience_years, price_per_hour, bio, cases_count, rating, reviews_count, is_verified, is_active, user_id)
+VALUES ('أ. محمد العتيبي', 'قانون تجاري', 'الرياض', '+966500672855', 'kdmatk@gmail.com', '12345/ق', 15, 500, 'محامٍ مرخص متخصص في القانون التجاري والشركات مع خبرة تتجاوز 15 عامًا في المحاكم التجارية بالمملكة العربية السعودية.', 230, 4.9, 4, true, true, '8ac9a338-1b6f-465e-b039-24cc23ea0a12');
