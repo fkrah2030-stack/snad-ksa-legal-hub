@@ -47,7 +47,7 @@ export function LawyerSidebar() {
   };
 
   return (
-    <div className="w-64 h-screen bg-card border-l border-border flex flex-col sticky top-0 overflow-y-auto">
+    <div className="w-64 h-screen bg-sidebar border-l border-sidebar-border flex flex-col sticky top-0 overflow-y-auto">
       {/* Logo */}
       <div className="p-5 border-b border-border flex items-center justify-center">
         <Link to="/lawyer-dashboard">
