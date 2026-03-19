@@ -77,6 +77,11 @@ const Footer = () => {
           <p className="text-primary-foreground/25 text-xs">
             © {new Date().getFullYear()} منصة سند للخدمات القانونية. جميع الحقوق محفوظة.
           </p>
+          <div className="flex items-center gap-4 text-xs">
+            <Link to="/terms" className="text-primary-foreground/25 hover:text-gold transition-colors">شروط الاستخدام</Link>
+            <span className="text-primary-foreground/15">|</span>
+            <Link to="/privacy" className="text-primary-foreground/25 hover:text-gold transition-colors">سياسة الخصوصية</Link>
+          </div>
           <p className="text-primary-foreground/25 text-xs">
             برمجة وتطوير <a href="https://www.mdyaf.sa" target="_blank" rel="noopener noreferrer" className="text-gold/60 font-medium hover:text-gold hover:underline transition-colors duration-300">شركة مضياف العربية لتقنية المعلومات</a>
           </p>
