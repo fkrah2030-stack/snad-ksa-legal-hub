@@ -132,9 +132,11 @@ const FeaturedLawyers = () => {
                       استشارة
                     </Button>
                   </Link>
-                  <Button variant="outline" size="icon" className="border-border rounded-xl h-10 w-10">
-                    <Phone size={16} className="text-primary" />
-                  </Button>
+                  <Link to={`/lawyer/${lawyer.id}`}>
+                    <Button variant="outline" size="icon" className="border-border rounded-xl h-10 w-10">
+                      <Phone size={16} className="text-primary" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -142,9 +144,11 @@ const FeaturedLawyers = () => {
         </div>
 
         <div className="text-center mt-10">
-          <Button variant="outline" className="border-border text-foreground hover:bg-muted rounded-xl">
-            عرض جميع المحامين
-          </Button>
+          <Link to="/lawyer/1">
+            <Button variant="outline" className="border-border text-foreground hover:bg-muted rounded-xl">
+              عرض جميع المحامين
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import { Scale, Landmark, Briefcase, Users, Gavel, Building2, LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -61,18 +62,22 @@ const LegalServices = () => {
                     </div>
                     <h3 className="text-foreground font-bold text-lg mb-2">{service.title}</h3>
                     <p className="text-muted-foreground text-sm mb-5">{service.description}</p>
-                    <Button variant="outline" className="border-border text-primary hover:bg-primary hover:text-primary-foreground rounded-xl text-sm font-medium transition-colors">
-                      طلب استشارة
-                    </Button>
+                    <Link to="/login">
+                      <Button variant="outline" className="border-border text-primary hover:bg-primary hover:text-primary-foreground rounded-xl text-sm font-medium transition-colors">
+                        طلب استشارة
+                      </Button>
+                    </Link>
                   </div>
                 );
               })}
         </div>
 
         <div className="text-center mt-10">
-          <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold rounded-xl px-8">
-            عرض جميع الخدمات
-          </Button>
+          <Link to="/login">
+            <Button className="bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold rounded-xl px-8">
+              عرض جميع الخدمات
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
