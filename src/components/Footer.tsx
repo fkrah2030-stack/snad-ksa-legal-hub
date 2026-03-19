@@ -65,7 +65,7 @@ const Footer = () => {
             © {new Date().getFullYear()} منصة سند للخدمات القانونية. جميع الحقوق محفوظة.
           </p>
           <p className="text-primary-foreground/40 text-xs">
-            برمجة وتطوير <span className="text-secondary font-medium">شركة مضياف العربية لتقنية</span>
+            برمجة وتطوير <a href="https://www.mdyaf.sa" target="_blank" rel="noopener noreferrer" className="text-secondary font-medium hover:underline">شركة مضياف العربية لتقنية المعلومات</a>
           </p>
         </div>
       </div>
