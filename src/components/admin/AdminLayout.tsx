@@ -5,6 +5,7 @@ import { AdminSidebar } from "./AdminSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Loader2, Bell, Globe, Calendar, RefreshCw } from "lucide-react";
+import { NotificationsPopover } from "@/components/NotificationsPopover";
 
 const AdminLayout = () => {
   const { user, loading, isAdmin } = useAuth();
