@@ -202,8 +202,8 @@ const Register = () => {
               className="!h-4 !w-4 !min-h-0 !min-w-0 !p-0 !m-0 shrink-0 grow-0 basis-4 rounded-[3px] border border-white/30 data-[state=checked]:bg-secondary data-[state=checked]:border-secondary data-[state=checked]:text-secondary-foreground"
             />
             <span className="text-primary-foreground/60 text-sm leading-none">
-              أوافق على <a href="#" className="text-secondary hover:underline" onClick={e => e.stopPropagation()}>شروط الاستخدام</a> و{" "}
-              <a href="#" className="text-secondary hover:underline" onClick={e => e.stopPropagation()}>سياسة الخصوصية</a>
+              أوافق على <Link to="/terms" className="text-secondary hover:underline" onClick={e => e.stopPropagation()}>شروط الاستخدام</Link> و{" "}
+              <Link to="/privacy" className="text-secondary hover:underline" onClick={e => e.stopPropagation()}>سياسة الخصوصية</Link>
             </span>
           </label>
 
