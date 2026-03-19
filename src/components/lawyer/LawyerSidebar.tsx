@@ -49,7 +49,7 @@ export function LawyerSidebar() {
   return (
     <div className="w-64 h-screen bg-sidebar border-l border-sidebar-border flex flex-col sticky top-0 overflow-y-auto">
       {/* Logo */}
-      <div className="p-5 border-b border-border flex items-center justify-center">
+      <div className="p-5 border-b border-sidebar-border flex items-center justify-center">
         <Link to="/lawyer-dashboard">
           <img src={snadLogo} alt="سند" className="h-20 w-auto object-contain" />
         </Link>
