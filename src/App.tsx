@@ -85,6 +85,8 @@ const AnimatedRoutes = () => {
           <Route path="contracts" element={<ClientContracts />} />
           <Route path="payments" element={<ClientPayments />} />
           <Route path="profile" element={<ClientProfile />} />
+          <Route path="privacy" element={<ClientPrivacy />} />
+          <Route path="settings" element={<ClientSettings />} />
         </Route>
         
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
