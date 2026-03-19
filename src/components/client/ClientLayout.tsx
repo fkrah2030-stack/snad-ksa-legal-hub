@@ -4,7 +4,8 @@ import { useAuth } from "@/hooks/useAuth";
 import { ClientSidebar } from "./ClientSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Loader2, Bell } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import { NotificationsPopover } from "@/components/NotificationsPopover";
 
 const ClientLayout = () => {
   const { user, loading } = useAuth();
