@@ -1,6 +1,6 @@
 import { BookOpen, TrendingUp, FileText, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mojLogo from "@/assets/moj-logo.png";
+import mojLogo from "@/assets/moj-logo.svg";
 
 const features = [
   { icon: FileText, label: "شروح للأنظمة والأحكام القضائية" },
