@@ -34,6 +34,8 @@ import ClientConsultations from "./pages/client/ClientConsultations.tsx";
 import ClientContracts from "./pages/client/ClientContracts.tsx";
 import ClientPayments from "./pages/client/ClientPayments.tsx";
 import ClientProfile from "./pages/client/ClientProfile.tsx";
+import ClientPrivacy from "./pages/client/ClientPrivacy.tsx";
+import ClientSettings from "./pages/client/ClientSettings.tsx";
 import InstantConsultation from "./pages/InstantConsultation.tsx";
 import TermsOfUse from "./pages/TermsOfUse.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
@@ -83,6 +85,8 @@ const AnimatedRoutes = () => {
           <Route path="contracts" element={<ClientContracts />} />
           <Route path="payments" element={<ClientPayments />} />
           <Route path="profile" element={<ClientProfile />} />
+          <Route path="privacy" element={<ClientPrivacy />} />
+          <Route path="settings" element={<ClientSettings />} />
         </Route>
         
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
