@@ -7,27 +7,15 @@ import {
   Star,
   LogOut,
   Home,
-  FileText,
   Briefcase,
   Inbox,
+  ChevronLeft,
 } from "lucide-react";
-import { NavLink } from "@/components/NavLink";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { NavLink as RouterNavLink, useLocation, useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import snadLogo from "@/assets/snad-logo.png";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarFooter,
-  useSidebar,
-} from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const mainItems = [
   { title: "لوحة التحكم", url: "/lawyer-dashboard", icon: LayoutDashboard },
@@ -38,17 +26,20 @@ const mainItems = [
   { title: "التقييمات", url: "/lawyer-dashboard/reviews", icon: Star },
 ];
 
-const systemItems = [
+const accountItems = [
   { title: "الملف الشخصي", url: "/lawyer-dashboard/profile", icon: User },
   { title: "الإعدادات", url: "/lawyer-dashboard/settings", icon: Settings },
 ];
 
 export function LawyerSidebar() {
-  const { state } = useSidebar();
-  const collapsed = state === "collapsed";
   const location = useLocation();
   const navigate = useNavigate();
   const { signOut } = useAuth();
+
+  const isActive = (path: string) =>
+    path === "/lawyer-dashboard"
+      ? location.pathname === "/lawyer-dashboard"
+      : location.pathname.startsWith(path);
 
   const handleLogout = async () => {
     await signOut();
@@ -56,81 +47,79 @@ export function LawyerSidebar() {
   };
 
   return (
-    <Sidebar side="right" collapsible="icon" className="border-r-0 border-l border-sidebar-border">
-      <div className="p-4 border-b border-sidebar-border flex items-center justify-center">
+    <div className="w-64 h-screen bg-card border-l border-border flex flex-col sticky top-0 overflow-y-auto">
+      {/* Logo */}
+      <div className="p-5 border-b border-border flex items-center justify-center">
         <Link to="/lawyer-dashboard">
-          <img
-            src={snadLogo}
-            alt="سند"
-            className={`${collapsed ? "h-16" : "h-24"} w-auto object-contain transition-all`}
-          />
+          <img src={snadLogo} alt="سند" className="h-20 w-auto object-contain" />
         </Link>
       </div>
 
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>إدارة الطلبات</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {mainItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink
-                      to={item.url}
-                      end={item.url === "/lawyer-dashboard"}
-                      className="hover:bg-sidebar-accent text-sidebar-foreground"
-                      activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
-                    >
-                      <item.icon className="ml-2 h-4 w-4" />
-                      {!collapsed && <span>{item.title}</span>}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+      {/* Navigation */}
+      <nav className="flex-1 py-4 px-3 space-y-1">
+        <p className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider px-3 mb-2">إدارة الطلبات</p>
+        {mainItems.map((item) => {
+          const active = isActive(item.url);
+          return (
+            <RouterNavLink
+              key={item.title}
+              to={item.url}
+              end={item.url === "/lawyer-dashboard"}
+              className={cn(
+                "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200",
+                active
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-foreground/70 hover:bg-muted hover:text-foreground"
+              )}
+            >
+              <item.icon size={18} className={active ? "text-secondary" : ""} />
+              <span>{item.title}</span>
+              {active && <ChevronLeft size={14} className="mr-auto" />}
+            </RouterNavLink>
+          );
+        })}
 
-        <SidebarGroup>
-          <SidebarGroupLabel>معلومات الحساب</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {systemItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <NavLink
-                      to={item.url}
-                      className="hover:bg-sidebar-accent text-sidebar-foreground"
-                      activeClassName="bg-sidebar-accent text-sidebar-primary font-medium"
-                    >
-                      <item.icon className="ml-2 h-4 w-4" />
-                      {!collapsed && <span>{item.title}</span>}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </SidebarContent>
+        <div className="my-4 border-t border-border" />
 
-      <SidebarFooter className="border-t border-sidebar-border p-3 space-y-2">
+        <p className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider px-3 mb-2">معلومات الحساب</p>
+        {accountItems.map((item) => {
+          const active = isActive(item.url);
+          return (
+            <RouterNavLink
+              key={item.title}
+              to={item.url}
+              className={cn(
+                "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200",
+                active
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-foreground/70 hover:bg-muted hover:text-foreground"
+              )}
+            >
+              <item.icon size={18} className={active ? "text-secondary" : ""} />
+              <span>{item.title}</span>
+            </RouterNavLink>
+          );
+        })}
+      </nav>
+
+      {/* Footer */}
+      <div className="border-t border-border p-3 space-y-1">
         <Link to="/">
-          <Button variant="ghost" size="sm" className="w-full justify-start gap-2 text-sidebar-foreground/60 text-xs">
+          <Button variant="ghost" size="sm" className="w-full justify-start gap-2 text-muted-foreground text-xs rounded-xl">
             <Home size={14} />
-            {!collapsed && "العودة للموقع"}
+            العودة للموقع
           </Button>
         </Link>
         <Button
           variant="ghost"
           size="sm"
           onClick={handleLogout}
-          className="w-full justify-start gap-2 text-destructive text-xs"
+          className="w-full justify-start gap-2 text-destructive text-xs rounded-xl"
         >
           <LogOut size={14} />
-          {!collapsed && "تسجيل الخروج"}
+          تسجيل الخروج
         </Button>
-      </SidebarFooter>
-    </Sidebar>
+      </div>
+    </div>
   );
 }
