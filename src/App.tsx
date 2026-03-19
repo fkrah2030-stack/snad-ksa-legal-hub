@@ -67,6 +67,7 @@ const AnimatedRoutes = () => {
           <Route path="appointments" element={<LawyerAppointments />} />
           <Route path="reviews" element={<LawyerReviews />} />
           <Route path="profile" element={<LawyerProfilePage />} />
+          <Route path="settings" element={<LawyerSettings />} />
         </Route>
 
         {/* Client Routes */}
