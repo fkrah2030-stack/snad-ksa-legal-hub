@@ -4,7 +4,8 @@ import { useAuth } from "@/hooks/useAuth";
 import { ClientSidebar } from "./ClientSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Loader2, Bell } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import { NotificationsPopover } from "@/components/NotificationsPopover";
 
 const ClientLayout = () => {
   const { user, loading } = useAuth();
@@ -37,9 +38,7 @@ const ClientLayout = () => {
               <h2 className="text-sm font-medium text-primary-foreground/70 hidden sm:block">لوحة تحكم المستفيد</h2>
             </div>
             <div className="flex items-center gap-3">
-              <button className="relative p-2 rounded-lg hover:bg-primary-foreground/10 transition-colors">
-                <Bell size={18} className="text-primary-foreground/70" />
-              </button>
+              <NotificationsPopover />
               <Avatar className="h-8 w-8 border border-primary-foreground/20">
                 <AvatarFallback className="bg-secondary text-secondary-foreground text-xs">
                   {user.email?.charAt(0).toUpperCase() || "U"}

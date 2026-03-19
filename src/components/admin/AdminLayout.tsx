@@ -5,6 +5,7 @@ import { AdminSidebar } from "./AdminSidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Loader2, Bell, Globe, Calendar, RefreshCw } from "lucide-react";
+import { NotificationsPopover } from "@/components/NotificationsPopover";
 
 const AdminLayout = () => {
   const { user, loading, isAdmin } = useAuth();
@@ -54,10 +55,7 @@ const AdminLayout = () => {
                   <h2 className="text-sm font-medium text-primary-foreground/70 hidden sm:block">لوحة تحكم الأدمن</h2>
                 </div>
                 <div className="flex items-center gap-3">
-                  <button className="relative p-2 rounded-lg hover:bg-primary-foreground/10 transition-colors">
-                    <Bell size={18} className="text-primary-foreground/70" />
-                    <span className="absolute top-1 right-1 w-2 h-2 bg-destructive rounded-full" />
-                  </button>
+                  <NotificationsPopover />
                   <Avatar className="h-8 w-8 border border-primary-foreground/20">
                     <AvatarFallback className="bg-secondary text-secondary-foreground text-xs">
                       {user.email?.charAt(0).toUpperCase() || "A"}
