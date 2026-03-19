@@ -60,9 +60,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 pt-6 text-center">
+        <div className="border-t border-primary-foreground/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-center">
           <p className="text-primary-foreground/40 text-xs">
             © {new Date().getFullYear()} منصة سند للخدمات القانونية. جميع الحقوق محفوظة.
+          </p>
+          <p className="text-primary-foreground/40 text-xs">
+            برمجة وتطوير <span className="text-secondary font-medium">شركة مضياف العربية لتقنية</span>
           </p>
         </div>
       </div>
