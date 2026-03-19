@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Loader2, Bell, MapPin, Briefcase, Award, Clock, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { NotificationsPopover } from "@/components/NotificationsPopover";
 
 const LawyerLayout = () => {
   const { user, loading, roles } = useAuth();
