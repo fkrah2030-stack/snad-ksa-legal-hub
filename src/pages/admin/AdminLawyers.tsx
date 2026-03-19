@@ -74,10 +74,7 @@ const AdminLawyers = () => {
           <h1 className="text-2xl font-bold text-foreground">إدارة المحامين</h1>
           <p className="text-muted-foreground text-sm mt-1">{lawyers.length} محامي مسجل</p>
         </div>
-        <Button className="bg-primary text-primary-foreground gap-2">
-          <Plus size={16} />
-          إضافة محامي
-        </Button>
+        <AddLawyerDialog onSuccess={fetchLawyers} />
       </div>
 
       <Card>
