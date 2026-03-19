@@ -35,6 +35,8 @@ import ClientContracts from "./pages/client/ClientContracts.tsx";
 import ClientPayments from "./pages/client/ClientPayments.tsx";
 import ClientProfile from "./pages/client/ClientProfile.tsx";
 import InstantConsultation from "./pages/InstantConsultation.tsx";
+import TermsOfUse from "./pages/TermsOfUse.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 
 const queryClient = new QueryClient();
 
