@@ -1,0 +1,1 @@
+UPDATE services SET is_published = true WHERE id = '21822c7d-b9ec-4dd5-8e05-a5dbd608a2e0';
