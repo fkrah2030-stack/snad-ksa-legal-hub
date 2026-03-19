@@ -1,24 +1,20 @@
-# Memory: index.md
-Updated: now
-
-# Snad KSA Legal Platform
+Snad KSA Legal Platform - Editorial Luxury aesthetic with deep navy and gold
 
 ## Design System
-- Primary: deep blue HSL(222, 47%, 20%)
-- Secondary: golden HSL(45, 93%, 47%) - for accents/CTAs
-- Font: Cairo + Tajawal (Arabic)
+- Primary (Navy): HSL(218, 58%, 16%)
+- Gold accent: HSL(42, 87%, 55%)
+- Fonts: Noto Kufi Arabic (display), IBM Plex Sans Arabic (body)
 - Direction: RTL
-- Theme color: #1e3a5f
+- Aesthetic: Editorial luxury with geometric Islamic patterns, grain texture, gold shimmer lines
 
 ## Architecture
-- Layout wraps all pages (Header + Footer + MobileBottomNav)
-- MobileBottomNav: fixed bottom nav on mobile, hidden on md+
+- Layout wraps all pages (Header + Footer)
 - Components: Hero, GovernmentPartner, PlatformSaleBanner, FeaturedLawyers, LegalServices, Statistics, Testimonials
-- PWA configured with vite-plugin-pwa
+- Custom CSS classes: geo-pattern, grain-overlay, gold-line, glass-card, section-title-accent, golden-ring
 
 ## Decisions
-- Logo generated as snad-logo.png
+- Logo: snad-logo.png
 - Hero background: hero-bg.jpg
-- Mobile-first approach with touch-friendly 44px min targets
-- framer-motion pinned to 11.18.2 (React 18 compat)
-- PWA icons: pwa-192x192.png, pwa-512x512.png
+- MOJ logo: moj-logo.png (وزارة العدل)
+- Najiz logo: najiz-logo.svg
+- Footer credits link to mdyaf.sa
