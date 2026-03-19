@@ -79,9 +79,9 @@ export function LawyerSidebar() {
           );
         })}
 
-        <div className="my-4 border-t border-border" />
+        <div className="my-4 border-t border-sidebar-border" />
 
-        <p className="text-[10px] font-bold text-muted-foreground/60 uppercase tracking-wider px-3 mb-2">معلومات الحساب</p>
+        <p className="text-[10px] font-bold text-sidebar-foreground/40 uppercase tracking-wider px-3 mb-2">معلومات الحساب</p>
         {accountItems.map((item) => {
           const active = isActive(item.url);
           return (
@@ -91,11 +91,11 @@ export function LawyerSidebar() {
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200",
                 active
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "text-foreground/70 hover:bg-muted hover:text-foreground"
+                  ? "bg-sidebar-accent text-sidebar-accent-foreground shadow-sm"
+                  : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
               )}
             >
-              <item.icon size={18} className={active ? "text-secondary" : ""} />
+              <item.icon size={18} className={active ? "text-sidebar-primary" : ""} />
               <span>{item.title}</span>
             </RouterNavLink>
           );
